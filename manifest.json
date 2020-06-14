@@ -1,11 +1,11 @@
 {
-    "name": "personalWebsite",
-    "short_name": "personalWebsite",
+    "name": "CWF",
+    "short_name": "CWF",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "This is the Protfiolo of CWF . You would find the Service that suit you best",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

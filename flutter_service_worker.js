@@ -38,7 +38,6 @@ const RESOURCES = {
 "assets/NOTICES": "6bf485cfebe71fe049651558a63bf6fb",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/packages/flutter_brand_icons/fonts/brands.ttf": "c68086e056cc711231ec09ea8b005516",
-"favicon%202.png": "5dcef449791fa27946b3d35ad8803796",
 "favicon.png": "d6cfef490aef4920665dd824d6c33a4f",
 "icons/Icon-192%202.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-192.png": "d6cfef490aef4920665dd824d6c33a4f",
@@ -46,8 +45,8 @@ const RESOURCES = {
 "icons/Icon-512.png": "d6cfef490aef4920665dd824d6c33a4f",
 "index.html": "4a443696b51b2303fecff8665484910d",
 "/": "4a443696b51b2303fecff8665484910d",
-"main.dart.js": "3d5751b4996e34de259fb83af193ae00",
-"manifest.json": "d7f96e70f7001d173521f13c865b911f"
+"main.dart.js": "8a0f25ec7d23e79dc2aa51b3730bf184",
+"manifest.json": "b7f0303a0062692a1b64bbeda7d36956"
 };
 
 // The application shell files that are downloaded before a service worker can

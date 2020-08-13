@@ -2,7 +2,7 @@
     "name": "CWF",
     "short_name": "CWF",
     "start_url": ".",
-    "display": "fullscreen",
+    "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
     "description": "This is the Protfiolo of CWF . You would find the Service that suit you best",

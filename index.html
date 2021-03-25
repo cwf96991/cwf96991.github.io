@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="CWF">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" href="icons/Icon-192.jpg">
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="favicon.png"/>
@@ -24,10 +24,30 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=886642107');
+        // navigator.serviceWorker.register("/flutter_service_worker.js");
+        navigator.serviceWorker.register("/firebase-messaging-sw.js");
       });
     }
   </script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-messaging.js"></script>
+  <script>
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyAhJOKFbBZGLAF7kgSBXYOQNeOSfwq30B8",
+      authDomain: "personalweb-9a157.firebaseapp.com",
+      projectId: "personalweb-9a157",
+      storageBucket: "personalweb-9a157.appspot.com",
+      messagingSenderId: "535997393456",
+      appId: "1:535997393456:web:15a8e4ffcfde94ba221bf5",
+      measurementId: "G-4P7PPBN11C"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+  </script>
+  
+
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

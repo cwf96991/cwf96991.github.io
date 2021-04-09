@@ -19,7 +19,7 @@
   <link rel="manifest" href="manifest.json">
   <script src ="https://js.stripe.com/v3/"></script>
 
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAyU7FVq3eV2s40CtqXBTqs6tAWO9yWg8"></script>
 </head>
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
@@ -97,7 +97,7 @@
     
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('firebase-messaging-sw.js?0.4');
+        navigator.serviceWorker.register('firebase-messaging-sw.js?0.5');
       });
     }
     document.addEventListener('DOMContentLoaded', function(event) {
@@ -146,12 +146,7 @@
       }
     }
     handleServiceWorker();
-  
   </script>
- 
- 
-
-
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-messaging.js"></script>
@@ -172,7 +167,7 @@
   </script>
   
 
-  <script src="main.dart.js?version=0.4" type="application/javascript"></script>
+  <script src="main.dart.js?version=0.5" type="application/javascript"></script>
   <center style="padding-top: 150px" id="loader">
     <div class="loader"></div>
    </center>

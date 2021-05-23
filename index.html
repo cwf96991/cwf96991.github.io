@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta
-      name="description"
-      content="This is the Protfiolo of CWF . You would find the Service that suit you best"
-    />
+    <meta name="description" content="CWF Portfolio,Front end Developer" />
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,11 +14,18 @@
       content="610928516856-1fep9ldf8achs66crv4pkcdjege37nvh.apps.googleusercontent.com"
     />
     <link rel="apple-touch-icon" href="icons/Icon-192.jpg" />
-
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="CWF Portfolio" />
+    <meta
+      property="og:description"
+      content="Check out my side project and build what you want"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="favicon.jpg" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="favicon.jpg" />
 
-    <title>CWF</title>
+    <title>CWF Personal Website: Build what you want</title>
     <link rel="manifest" href="manifest.json" />
     <script src="https://js.stripe.com/v3/"></script>
 
@@ -31,7 +35,7 @@
     <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
-    <!-- <style>
+    <style>
       /* fix for blurry fonts 
         flt-glass-pane {
             image-rendering: pixelated;
@@ -96,80 +100,90 @@
           box-shadow: 0 2.5em 0 0;
         }
       }
-    </style> -->
-    
+    </style>
+
     <script>
-    
-    
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('firebase-messaging-sw.js');
-      });
-    }
-    document.addEventListener('DOMContentLoaded', function(event) {
-      document.getElementById('loader').style.display = 'none';
-    });
-    
-    function invokeServiceWorkerUpdateFlow() {
-      // you have a better UI here, reloading is not a great user experince here.
-      const confirmed = alert('New version of the app is available. Refresh now');
-      if (confirmed == true) {
-        window.location.reload();
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("firebase-messaging-sw.js?0.6");
+        });
       }
-    }
-    async function handleServiceWorker() {
-      if ('serviceWorker' in navigator) {
-        // get the ServiceWorkerRegistration instance
-        const registration = await navigator.serviceWorker.getRegistration();
-        // (it is also returned from navigator.serviceWorker.register() function)
-        if (registration) {
-          // detect Service Worker update available and wait for it to become installed
-          registration.addEventListener('updatefound', () => {
-            if (registration.installing) {
-              // wait until the new Service worker is actually installed (ready to take over)
-              registration.installing.addEventListener('statechange', () => {
-                if (registration.waiting) {
-                  // if there's an existing controller (previous Service Worker), show the prompt
-                  if (navigator.serviceWorker.controller) {
-                    invokeServiceWorkerUpdateFlow(registration);
-                  } else {
-                    // otherwise it's the first install, nothing to do
-                    console.log('Service Worker initialized for the first time');
-                  }
-                }
-              });
-            }
-          });
-          let refreshing = false;
-          // detect controller change and refresh the page
-          
+      document.addEventListener("DOMContentLoaded", function (event) {
+        document.getElementById("loader").style.display = "none";
+      });
+
+      function invokeServiceWorkerUpdateFlow() {
+        // you have a better UI here, reloading is not a great user experince here.
+        const confirmed = alert(
+          "New version of the app is available. Refresh now"
+        );
+        if (confirmed == true) {
+          window.location.reload();
         }
       }
-    }
-    handleServiceWorker();
-  </script>
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-messaging.js"></script>
-  <script>
+      async function handleServiceWorker() {
+        if ("serviceWorker" in navigator) {
+          // get the ServiceWorkerRegistration instance
+          const registration = await navigator.serviceWorker.getRegistration();
+          // (it is also returned from navigator.serviceWorker.register() function)
+          if (registration) {
+            // detect Service Worker update available and wait for it to become installed
+            registration.addEventListener("updatefound", () => {
+              if (registration.installing) {
+                // wait until the new Service worker is actually installed (ready to take over)
+                registration.installing.addEventListener("statechange", () => {
+                  if (registration.waiting) {
+                    // if there's an existing controller (previous Service Worker), show the prompt
+                    if (navigator.serviceWorker.controller) {
+                      invokeServiceWorkerUpdateFlow(registration);
+                    } else {
+                      // otherwise it's the first install, nothing to do
+                      console.log(
+                        "Service Worker initialized for the first time"
+                      );
+                    }
+                  }
+                });
+              }
+            });
+            let refreshing = false;
+            // detect controller change and refresh the page
+            navigator.serviceWorker.addEventListener("controllerchange", () => {
+              if (!refreshing) {
+                window.location.reload();
+                refreshing = true;
+              }
+            });
+          }
+        }
+      }
+      handleServiceWorker();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-messaging.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAhJOKFbBZGLAF7kgSBXYOQNeOSfwq30B8",
+        authDomain: "personalweb-9a157.firebaseapp.com",
+        projectId: "personalweb-9a157",
+        storageBucket: "personalweb-9a157.appspot.com",
+        messagingSenderId: "535997393456",
+        appId: "1:535997393456:web:15a8e4ffcfde94ba221bf5",
+        measurementId: "G-4P7PPBN11C",
+      };
 
-    var firebaseConfig = {
-      apiKey: "AIzaSyAhJOKFbBZGLAF7kgSBXYOQNeOSfwq30B8",
-      authDomain: "personalweb-9a157.firebaseapp.com",
-      projectId: "personalweb-9a157",
-      storageBucket: "personalweb-9a157.appspot.com",
-      messagingSenderId: "535997393456",
-      appId: "1:535997393456:web:15a8e4ffcfde94ba221bf5",
-      measurementId: "G-4P7PPBN11C"
-    };
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
-    firebase.initializeApp(firebaseConfig);
-
-  </script>
-
-    <script src="main.dart.js" type="application/javascript"></script>
-    <!-- <center style="padding-top: 150px" id="loader">
-      <div class="loader"></div>
-    </center> -->
+    <script
+      src="main.dart.js?version=0.6"
+      type="application/javascript"
+    ></script>
+    <div
+      style="text-align: center; padding-top: 150px"
+      id="loader"
+      class="loader"
+    ></div>
   </body>
 </html>

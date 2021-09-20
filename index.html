@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="/">
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <meta name="description" content="CWF Portfolio,Front end Developer" />
@@ -15,13 +16,38 @@
     />
     <link rel="apple-touch-icon" href="icons/Icon-192.jpg" />
     <!-- SEO & Open Graph -->
-    <meta property="og:title" content="CWF Portfolio" />
+    <meta property="og:title" content="CWF | Portfolio" />
+    <meta property="twitter:title" content="CWF | Portfolio" />
     <meta
       property="og:description"
       content="Check out my side project and build what you want"
     />
+    <meta
+      property="twitter:description"
+      content="Check out my side project and build what you want"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="favicon.jpg" />
+    <meta property="twitter:image" content="favicon.jpg" />
+    <script>
+      var link = document.createElement('meta');
+      link.setAttribute('property', 'og:url');
+      link.content = document.location;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <script>
+      var link = document.createElement('meta');
+      link.setAttribute('property', 'twitter:url');
+      link.content = document.location;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <script>
+      var link = document.createElement('meta');
+      link.setAttribute('name', 'shareaholic:url');
+      link.content = document.location;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="favicon.jpg" />
 
@@ -162,6 +188,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-messaging.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="application/javascript"></script>
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyAhJOKFbBZGLAF7kgSBXYOQNeOSfwq30B8",

@@ -2244,7 +2244,6 @@ bzip2:
 
 --------------------------------------------------------------------------------
 args
-logging
 
 Copyright 2013, the Dart project authors. 
 
@@ -5292,6 +5291,7 @@ SOFTWARE.
 --------------------------------------------------------------------------------
 characters
 checked_yaml
+package_config
 
 Copyright 2019, the Dart project authors. All rights reserved.
 Redistribution and use in source and binary forms, with or without
@@ -5327,6 +5327,7 @@ glob
 http_parser
 matcher
 path
+pub_semver
 source_span
 stack_trace
 string_scanner
@@ -5974,6 +5975,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 csslib
 intl
+logging
 shimmer
 
 Copyright 2013, the Dart project authors. All rights reserved.
@@ -6531,7 +6533,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 dart_style
 http
-pub_semver
 
 Copyright 2014, the Dart project authors. 
 
@@ -6767,7 +6768,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 ffi
-package_config
 
 Copyright 2019, the Dart project authors. 
 

@@ -12,7 +12,7 @@ const RESOURCES = {
 "icons/Icon-192.jpg": "a448f5223f4bea2fb6ae8ad00e74a5c5",
 "icons/Icon-512.jpg": "b656d4c77e037c2cb2de4f50e382bc9a",
 "manifest.json": "222a11692629f135687ca08a22c2de45",
-"assets/AssetManifest.json": "c150284ce755b5bfcf2c503fb5cbf858",
+"assets/AssetManifest.json": "18ab7e59f32729e110a8838042a10b04",
 "assets/NOTICES": "54d474ee7b0446b39520703cf3df3d5e",
 "assets/FontManifest.json": "47c24428f38780709ec7497f40adf4dd",
 "assets/packages/flutter_neumorphic/fonts/NeumorphicIcons.ttf": "32be0c4c86773ba5c9f7791e69964585",

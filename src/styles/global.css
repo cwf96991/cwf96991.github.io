@@ -1,0 +1,68 @@
+@tailwind base;
+
+a {
+  @apply text-blue-700;
+}
+
+a:hover {
+  @apply border-b-2 border-blue-700;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+.content p {
+  @apply my-6;
+}
+
+.content ul {
+  @apply my-6;
+}
+
+.fullScreen {
+  @apply h-[calc(100vh-70px)]
+}
+
+.fullScreenWithMargin {
+  @apply h-[calc(100vh-120px)]
+}
+
+.btnText {
+  @apply cursor-pointer btn btn-sm normal-case btn-ghost hover:bg-transparent p-0 m-0;
+}
+
+.svgBgBtn {
+  @apply bg-lightBlack rounded-full p-2 cursor-pointer opacity-80 hover:opacity-60;
+}
+.pinterest-btn {
+  display: block;
+  border: 0px;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 1px 2px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 19px;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0px 10px;
+  user-select: none;
+  height: 50px;
+  background: rgb(255, 255, 255);
+}
+
+.pinterest-btn .content {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.pinterest-btn .txt {
+  margin-left: 10px;
+}
+
+.pinterest-btn .icon {
+  display: flex;
+  justify-content: center;
+  min-width: 26px;
+}

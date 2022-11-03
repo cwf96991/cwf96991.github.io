@@ -56,7 +56,7 @@ const resumeDesc =
 const contactDesc =
   "Let me know if you are interested in my services or coliaboration.\nI will reply as soon as possible.";
 
-const linkedinLink = "www.linkedin.com/in/cwf96991";
+const linkedinLink = "https://www.linkedin.com/in/cwf96991";
 const turingLink = "https://bit.ly/turingCWF";
 const indeedLink = "https://indeedhi.re/3rIKkoM";
 const githubLink = "https://github.com/cwf96991";

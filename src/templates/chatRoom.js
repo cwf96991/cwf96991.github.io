@@ -1,117 +1,116 @@
-
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
 import Base from "./base";
 import { BgBtn } from "../components/btn";
-import { onForegroundMessage,getFirebaseToken } from "../utils/firebase";
+import { onForegroundMessage, getFirebaseToken } from "../utils/firebase";
 import localforage from "localforage";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 let socket;
 
 export default function ChatRoom() {
-    const [username, setUsername] = useState("");
-    const [chosenUsername, setChosenUsername] = useState("");
-    const [message, setMessage] = useState("");
-    const [messages, setMessages] = useState([]);
-    const [fcmToken,setFCMToken] = useState()
-    useEffect(() => {
-      socketInitializer();
-    }, []);
-    useEffect(() => {
-        handleGetFirebaseToken()
-    }, [])
-    const handleGetFirebaseToken = async() => {
-        const tokenInLocalForage = await localforage.getItem("fcm_token");
-        console.log(tokenInLocalForage)
-        // Return the token if it is alredy in our local storage
-        if (tokenInLocalForage !== null) {
-            setFCMToken(tokenInLocalForage)
-            console.log("tokenInLocalForage")
-            return ;
-        }
-        let firebaseToken = getFirebaseToken()
-        console.log(firebaseToken)
-        if (firebaseToken) {
-            localforage.setItem("fcm_token", firebaseToken);
-            
-            setFCMToken(firebaseToken)
-            console.log("firebaseToken")
-            return;
-        }
-           
-    } 
-    const socketInitializer = async () => {
-      // We just call it because we don't need anything else out of it
-      await fetch("/api/socket");
-  
-      socket = io();
-  
-      socket.on("newIncomingMessage", async (msg) => {
-        setMessages((currentMsg) => [
-          ...currentMsg,
-          { author: msg.author, message: msg.message },
-        ]);
-        
-          showToastMessage(msg);
-          //send notification
-          const tokenInLocalForage =await  localforage.getItem("fcm_token");
-          let fcm = fcmToken || tokenInLocalForage
-          console.log("fcm", fcm)
-          if (fcm){
-              let objectWithData = {
-                  "to": fcm,
-                  "priority": "high",
-                  "notification": {
-                      "title": "You got a new chat message",
-                      "body": msg.message
-                  },
-              }
-              fetch('https://fcm.googleapis.com/fcm/send', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                      'Authorization': 'key=AAAAfMvvKjA:APA91bG0ogWNGXOgmMK2Ffnx9C-NoiiJ3WLtiu18GW_etu5CM9UYz9jJT0TBYKE1i0nv2_0Eg9pE_Zt8aaUoN5ENrYXmzHxUt2KIzfCo7b85SqRY8-ikQyA3ceZQtyOfaWP7DN9a103F'
-                  },
-                  body: JSON.stringify(objectWithData),
-              })
-          }
-          
-        console.log(messages);
-      });
-    };
-    const showToastMessage = (msg) => {
-        toast(msg.author+": "+msg.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    };
-    const sendMessage = async () => {
-      socket.emit("createdMessage", { author: chosenUsername, message });
+  const [username, setUsername] = useState("");
+  const [chosenUsername, setChosenUsername] = useState("");
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [fcmToken, setFCMToken] = useState();
+  useEffect(() => {
+    socketInitializer();
+  }, []);
+  useEffect(() => {
+    handleGetFirebaseToken();
+  }, []);
+  const handleGetFirebaseToken = async () => {
+    const tokenInLocalForage = await localforage.getItem("fcm_token");
+    console.log(tokenInLocalForage);
+    // Return the token if it is alredy in our local storage
+    if (tokenInLocalForage !== null) {
+      setFCMToken(tokenInLocalForage);
+      console.log("tokenInLocalForage");
+      return;
+    }
+    let firebaseToken = getFirebaseToken();
+    console.log(firebaseToken);
+    if (firebaseToken) {
+      localforage.setItem("fcm_token", firebaseToken);
+
+      setFCMToken(firebaseToken);
+      console.log("firebaseToken");
+      return;
+    }
+  };
+  const socketInitializer = async () => {
+    // We just call it because we don't need anything else out of it
+    await fetch("/api/socket");
+
+    socket = io();
+
+    socket.on("newIncomingMessage", async (msg) => {
       setMessages((currentMsg) => [
         ...currentMsg,
-        { author: chosenUsername, message },
+        { author: msg.author, message: msg.message },
       ]);
-      setMessage("");
-    };
-  
-    const handleKeypress = (e) => {
-      //it triggers by pressing the enter key
-      if (e.keyCode === 13) {
-        if (message) {
-          sendMessage();
-        }
+
+      showToastMessage(msg);
+      //send notification
+      const tokenInLocalForage = await localforage.getItem("fcm_token");
+      let fcm = fcmToken || tokenInLocalForage;
+      console.log("fcm", fcm);
+      if (fcm) {
+        let objectWithData = {
+          to: fcm,
+          priority: "high",
+          notification: {
+            title: "You got a new chat message",
+            body: msg.message,
+          },
+        };
+        fetch("https://fcm.googleapis.com/fcm/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "key=AAAAfMvvKjA:APA91bG0ogWNGXOgmMK2Ffnx9C-NoiiJ3WLtiu18GW_etu5CM9UYz9jJT0TBYKE1i0nv2_0Eg9pE_Zt8aaUoN5ENrYXmzHxUt2KIzfCo7b85SqRY8-ikQyA3ceZQtyOfaWP7DN9a103F",
+          },
+          body: JSON.stringify(objectWithData),
+        });
       }
-    };
-  
-    return (
-      <Base title={"Chat Room"}>
+
+      console.log(messages);
+    });
+  };
+  const showToastMessage = (msg) => {
+    toast(msg.author + ": " + msg.message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const sendMessage = async () => {
+    socket.emit("createdMessage", { author: chosenUsername, message });
+    setMessages((currentMsg) => [
+      ...currentMsg,
+      { author: chosenUsername, message },
+    ]);
+    setMessage("");
+  };
+
+  const handleKeypress = (e) => {
+    //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      if (message) {
+        sendMessage();
+      }
+    }
+  };
+
+  return (
+    <Base title={"Chat Room"}>
       <div className="flex items-center p-4 mx-auto min-h-screen justify-center">
         <main className="gap-4 flex flex-col items-center justify-center w-full h-full">
           {!chosenUsername ? (
@@ -127,15 +126,11 @@ export default function ChatRoom() {
                 onChange={(e) => setUsername(e.target.value)}
               />
               <BgBtn
-          onClick={() => {
-           setChosenUsername(username);
-          }}
-          text={
-           "Go!"
-          }
-          
-        />
-             
+                onClick={() => {
+                  setChosenUsername(username);
+                }}
+                text={"Go!"}
+              />
             </>
           ) : (
             <>
@@ -175,12 +170,12 @@ export default function ChatRoom() {
                     </button>
                   </div>
                 </div>
-                                    <ToastContainer />
+                <ToastContainer />
               </div>
             </>
           )}
         </main>
       </div>
-      </Base>
-    );
-  }
+    </Base>
+  );
+}

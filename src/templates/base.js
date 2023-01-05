@@ -7,13 +7,13 @@ import { AppConfig } from "../utils/AppConfig";
 const Basic = (props) => {
   const title = props?.title === undefined ? "" : `${props?.title} | `;
   return (
-    <div className="antialiased text-black font-mono bg-white flex flex-col w-screen ">
+    <div className="antialiased text-black font-mono bg-white flex flex-col w-full ">
       <Meta
         title={`${title}${AppConfig.title}`}
         ogTitle={`${title}${AppConfig.ogTitle}`}
         description={AppConfig.description}
         canonical={AppConfig.url}
-        ogDescription={AppConfig.ogDescription}
+        ogDescription={AppConfig.description}
       />
       <Navbar />
 

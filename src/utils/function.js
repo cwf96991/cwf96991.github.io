@@ -1,14 +1,14 @@
 const truncateAddress = (address) => {
-  return address.slice(0, 6) + '...' + address.slice(-4);
+  return address.slice(0, 6) + "..." + address.slice(-4);
 };
 
 const truncateName = (name) => {
-  return name.length > 15 ? name.slice(0, 14) + '...' : name;
+  return name.length > 15 ? name.slice(0, 14) + "..." : name;
 };
 const truncateNumber = (name) => {
-  return name.length > 5 ? name.slice(0, 5) + '...' : name;
+  return name.length > 5 ? name.slice(0, 5) + "..." : name;
 };
-var SI_SYMBOL = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
+var SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
 
 function abbreviateNumber(number) {
   // what tier? (determines SI symbol)
@@ -52,20 +52,20 @@ function getTimeRemaining(endtime) {
   };
 }
 const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
-const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function formatFromDate(dates) {
   const date = new Date(dates);
@@ -74,15 +74,15 @@ function formatFromDate(dates) {
   const dayName = days[date.getDay()];
   const monthIndex = date.getMonth();
   const monthName = months[monthIndex];
-  const monthInNumber = ('0' + (monthIndex + 1)).slice(-2);
+  const monthInNumber = ("0" + (monthIndex + 1)).slice(-2);
 
-  const hourIn24 = ('0' + date.getHours()).slice(-2);
+  const hourIn24 = ("0" + date.getHours()).slice(-2);
 
-  const minute = ('0' + date.getMinutes()).slice(-2);
-  const second = ('0' + date.getSeconds()).slice(-2);
+  const minute = ("0" + date.getMinutes()).slice(-2);
+  const second = ("0" + date.getSeconds()).slice(-2);
 
-  const amPm = date.getHours() + 1 >= 12 ? 'pm' : 'am';
-  const hourIn12 = ('0' + (date.getHours() - 12)).slice(-2);
+  const amPm = date.getHours() + 1 >= 12 ? "pm" : "am";
+  const hourIn12 = ("0" + (date.getHours() - 12)).slice(-2);
 
   return {
     year,
@@ -116,36 +116,40 @@ function timeDiffString(timeStamp) {
   } else {
     isAgo = true;
   }
-  const prefix = isAgo ? '' : 'in ';
-  const suffix = isAgo ? ' ago' : '';
+  const prefix = isAgo ? "" : "in ";
+  const suffix = isAgo ? " ago" : "";
   let amount = 0;
-  let unit = '';
+  let unit = "";
   if (time.years !== 0) {
     amount = time.years;
-    unit = 'year';
+    unit = "year";
   } else if (time.months !== 0) {
     amount = time.months;
-    unit = 'month';
+    unit = "month";
   } else if (time.days !== 0) {
     amount = time.days;
-    unit = 'day';
+    unit = "day";
   } else if (time.hours !== 0) {
     amount = time.hours;
-    unit = 'hour';
+    unit = "hour";
   } else if (time.minutes !== 0) {
     amount = time.minutes;
-    unit = 'minute';
+    unit = "minute";
   } else {
     amount = null;
   }
   const isMoreThanOne = amount ?? 0 > 1;
-  const multiString = isMoreThanOne ? 's ' : '';
-  const result = prefix + amount + ' ' + unit + multiString + suffix;
-  return amount === null ? 'a moment ago' : result;
+  const multiString = isMoreThanOne ? "s " : "";
+  const result = prefix + amount + " " + unit + multiString + suffix;
+  return amount === null ? "a moment ago" : result;
+}
+function paddingNumber(n) {
+  return (parseInt(n) < 10 ? "0" : "") + n;
 }
 export {
   truncateAddress,
-  truncateName,truncateNumber,
+  truncateName,
+  truncateNumber,
   abbreviateNumber,
   getETHToUSD,
   getTimeRemaining,
@@ -153,4 +157,5 @@ export {
   formatToFullDateIn24,
   formatToMonthYear,
   timeDiffString,
+  paddingNumber,
 };

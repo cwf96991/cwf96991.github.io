@@ -1,6 +1,3 @@
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import useMobile from "../hook/useMobile";
 import React, { useEffect, useState } from "react";
 import {
   GithubSvg,
@@ -14,33 +11,44 @@ import {
   turingLink,
   linkedinLink,
 } from "../utils/constant";
+import { metamaskDeepLink } from "../utils/constant";
+
+import WalletNavBar from "./walletNavbar";
+import useWallet from "../hook/useWallet";
 import { FullLogo } from "./logo";
 const selectedNav =
-  "block py-2 pr-4 pl-3  md:bg-transparent md:text-blue-700 md:p-0 ";
+  "block py-2 pr-4 pl-3  md:bg-transparent md:text-blue-700 md:p-0 btnText";
 const unSelectedNav =
-  "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0";
+  "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 btnText md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0";
 const NavItem = ({ text, link }) => {
   var baseurl = "";
-  let isSelected = false;
-  // if (typeof window !== "undefined") {
-  //   baseurl = window.location.origin;
-  //   baseurl = baseurl + "/";
-  //   if (text == "Resume" && window.location.href.includes("resume")) {
-  //     isSelected = true;
-  //   } else if ((text = "Home" && baseurl == window.location.href)) {
-  //     isSelected = true;
-  //   }
-  // }
+  const [isSelect, setIsSelected] = useState("");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      baseurl = location.origin;
+      baseurl = baseurl + "/";
+      let isResume = text == "Resume" && location.href.includes("resume");
+      let isMyWork = text == "My Work" && location.href.includes("myWork");
+      if ((text = "Home" && baseurl == location.href)) {
+        setIsSelected("Home");
+      } else if (isResume) {
+        setIsSelected("Resume");
+      } else if (isMyWork) {
+        setIsSelected("My Work");
+      }
+    }
+  }, []);
   return (
     <li>
-      <a
-        href={link}
-        className={isSelected ? selectedNav : unSelectedNav}
-        
+      <div
+        onClick={() => {
+          location.href = link;
+        }}
+        className={isSelect == text ? selectedNav : unSelectedNav}
       >
         {text}
-      </a>
+      </div>
     </li>
   );
 };
@@ -103,15 +111,20 @@ const MenuBtn = () => {
 };
 const socialMediaList = [
   {
+    icon: <img src="/assets/img/metamask.svg" />,
+    link: metamaskDeepLink,
+    text: "Metamask",
+  },
+  {
     icon: <LinkedInSvg />,
     link: linkedinLink,
     text: "LinkedIn",
   },
-  {
-    icon: <TuringSvg />,
-    link: turingLink,
-    text: "Turing",
-  },
+  // {
+  //   icon: <TuringSvg />,
+  //   link: turingLink,
+  //   text: "Turing",
+  // },
   {
     icon: <IndeedSvg />,
     link: indeedLink,
@@ -124,16 +137,19 @@ const socialMediaList = [
   },
 ];
 const Navbar = ({ toggleMode, darkMode }) => {
+  const haveWallet = useWallet();
   useEffect(() => {
     checkNavBar();
   }, []);
-  return (
+  return haveWallet ? (
+    <WalletNavBar />
+  ) : (
     <nav className="bg-white  py-2.5 rounded shadow-lg opacity-85 backdrop-filter backdrop-blur-sm sticky">
       <div className="mx-4 md:mx-16 flex flex-wrap justify-between items-center ">
         <a href="/" className="hover:border-0">
           <FullLogo />
         </a>
-        <div className="flex items- md:order-2">
+        <div className="flex items-center md:order-2">
           <div className="flex items-center">
             {socialMediaList.map((item, index) => {
               const { icon, link, text } = item;
@@ -157,19 +173,12 @@ const Navbar = ({ toggleMode, darkMode }) => {
           className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
           id="nav-content"
         >
-          <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+          <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
             <NavItem text={"Home"} link={"/"} />
             <NavItem text={"Resume"} link={"/resume"} />
             <NavItem text={"Contact"} link={"/resume#contact"} />
-
-            {/* <li>
-              <a
-                href="/myWork"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                My Work
-              </a>
-            </li> */}
+            <NavItem text={"My Work"} link={"/myWork"} />
+            <NavItem text={"Chat Room"} link={"/chatRoom"} />
           </ul>
         </div>
       </div>

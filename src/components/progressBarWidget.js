@@ -1,7 +1,6 @@
-import { Line, Circle } from "rc-progress";
+import { Line } from "rc-progress";
 
 const ProgressBar = ({ text, percent }) => {
-  let style = "";
   return (
     <div className=" text-left  text-black font-bold font-italic">
       <div className="flex relative">

@@ -1,14 +1,49 @@
 import Base from "./base";
-import { BgBtn } from "../components/btn";
-import { contactDesc, resumeDesc } from "../utils/constant";
-import { SendSvg, DownloadSvg } from "../components/img";
 import useMobile from "../hook/useMobile";
-import { NewlineText } from "../components";
-import React, { useEffect, useState, useRef } from "react";
-var FileSaver = require("file-saver");
+import ContactMeForm from "./contactMeForm";
+import React, { useEffect, useRef } from "react";
+import ResumePanel from "../components/resumePanel";
+import { desc } from "../utils/constant";
+import Roadmap from "../components/expTimeLine";
+import { EmailSvg, GithubSvg, DownloadSvg } from "../components/img";
+import { BgBtn } from "../components/btn";
+import FileSaver from "file-saver";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
-const titleStyle = "text-2xl md:text-4xl font-extrabold text-center ";
-const subSessionStyle = "my-4 bg-black text-extrabold text-white text-2xl";
+const HeaderDivider = ({ text }) => {
+  return (
+    <div className="w-full ">
+      <div className="font-medium text-2xl ">{text}</div>
+      <div className=" h-[1px] bg-gray-300"></div>
+    </div>
+  );
+};
+const contactItemList = [
+  {
+    text: "cwfflutter@gmail.com",
+    icon: <EmailSvg />,
+    link: "mailto:cwfflutter@gmail.com",
+  },
+  {
+    text: "@cwf96991",
+    icon: <GithubSvg />,
+    link: "https://github.com/cwf96991",
+  },
+];
+const ContactItem = ({ item }) => {
+  const { text, icon, link } = item;
+  return (
+    <div
+      onClick={() => {
+        window.open(link);
+      }}
+      className="flex items-center my-2 cursor-pointer"
+    >
+      <div className="bg-white rounded-full p-1">{icon}</div>
+      <div className="text-black ml-2">{text}</div>
+    </div>
+  );
+};
 const TitleDescTime = ({ title, desc, time }) => {
   return (
     <div className="flex flex-col items-center mb-5">
@@ -18,99 +53,154 @@ const TitleDescTime = ({ title, desc, time }) => {
     </div>
   );
 };
-const workExpList = [
-  {
-    title: "Intern React Native Engineer",
-    company: "Flow Entertainment Limited",
-    time: "Jun 2020 - Aug 2020",
-  },
-  {
-    title: "Flutter Engineer",
-    company: "Flowsophic Limited",
-    time: "Oct 2020 - Jan 2021",
-  },
-  {
-    title: "Flutter Engineer",
-    company: "Sonivy Technology Limited",
-    time: "Jan 2021 - Now",
-  },
-];
-
+const SkillCol = ({ title, content }) => {
+  return (
+    <div
+      tabindex="0"
+      class="collapse collapse-arrow border border-base-300 bg-transpartent my-2 rounded-box"
+    >
+      <div class="collapse-title font-medium">{title}</div>
+      <div class="collapse-content">{content}</div>
+    </div>
+  );
+};
+const ProgressBar = ({ value }) => {
+  return <progress class="progress w-full" value={value} max="100"></progress>;
+};
 const Resume = () => {
-  const isMobile = useMobile();
   const ref = useRef(null);
+  const isMobile = useMobile();
   useEffect(() => {
     if (window.location.href.includes("#contact")) {
-      ref.current.scrollIntoView();
+      ref.current.scrollIntoView({ behavior: "smooth" });
     }
   }, []);
   return (
     <Base title={"Resume"}>
-      <div className="flex flex-col items-center px-4">
-        <div className={titleStyle}>Resume</div>
-        <div className="max-w-lg mt-4 text-center ">{resumeDesc}</div>
-        <div className="mb-5"></div>
-        <div className={subSessionStyle}>Education</div>
-        <TitleDescTime
-          title="The University Of Hong Kong"
-          desc="Computer Science"
-          time="2018 - 2022"
-        />
-        <div className="mb-5"></div>
-        <div className={subSessionStyle}>Work Experience</div>
-        {workExpList.map((work, index) => {
-          const { title, company, time } = work;
-          return (
-            <TitleDescTime
-              title={title}
-              desc={company}
-              time={time}
-              key={index}
-            />
-          );
-        })}
-        <div className="mb-5"></div>
-        <div className={subSessionStyle}>Skill and Tools</div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mx-4 md:mx-16">
-          <div className="flex flex-col">
-            <div>Flutter</div>
-            <div>React Native</div>
-            <div>NextJs</div>
-            <div>ReactJs</div>
-            <div>HTML&CSS</div>
-          </div>
-          <div className="flex flex-col">
-            <div>NodeJs</div>
-            <div>Firebase</div>
-            <div>AWS</div>
-            <div>Google Cloud Platform</div>
-            <div>MongoDB</div>
-
-            <div>MySQL</div>
-            <div>GraphQL</div>
-            <div>PHP</div>
-          </div>
-          <div className="flex flex-col">
-            <div>Solidity</div>
-            <div>Web3</div>
-            <div>SEO</div>
-            <div>NFT Marketplace</div>
-            <div>NFT Launch Pad</div>
-          </div>
-          <div className="flex flex-col">
-            <div>GIT</div>
-            <div>Jira</div>
-            <div>Jenkins - Test Automation</div>
-            <div>Unit Testing</div>
-          </div>
-          <div className="flex flex-col">
-            <div>AWS Amplify</div>
-            <div>Vercel</div>
-            <div>
-              App Store &<br /> Play Store Deployments
+      <AnimationOnScroll animateIn="animate__fadeIn">
+        <div className="flex w-full ">
+          <ResumePanel />
+          <div className="w-full md:w-4/5 p-5">
+            <HeaderDivider text={"PROFILE"} />
+            <div className="flex-col md:hidden">
+              {contactItemList.map((item, index) => {
+                return <ContactItem item={item} key={index} />;
+              })}
             </div>
+            <div className="mt-4 mb-8">{desc}</div>
+            <div className="flex-col md:hidden">
+              <AnimationOnScroll animateIn="animate__fadeInRight">
+                <HeaderDivider text={"SKILL"} />
+                <SkillCol
+                  title="Frontend"
+                  content={
+                    <div className="flex flex-col">
+                      <div>Flutter</div>
+                      <ProgressBar value={"98"} />
+                      <div>React Native</div>
+                      <ProgressBar value={"90"} />
+                      <div>NextJs</div>
+                      <ProgressBar value={"95"} />
+                      <div>ReactJs</div>
+                      <ProgressBar value={"90"} />
+                      <div>HTML&CSS</div>
+                      <ProgressBar value={"92"} />
+                      <div>SEO</div>
+                      <ProgressBar value={"98"} />
+                    </div>
+                  }
+                />
+                <SkillCol
+                  title="Backend"
+                  content={
+                    <div className="flex flex-col">
+                      <div>NodeJs</div>
+                      <ProgressBar value={"80"} />
+                      <div>Firebase</div>
+                      <ProgressBar value={"90"} />
+                      <div>AWS</div>
+                      <ProgressBar value={"88"} />
+                      <div>Google Cloud Platform</div>
+                      <ProgressBar value={"80"} />
+                      <div>MongoDB</div>
+                      <ProgressBar value={"90"} />
+                      <div>MySQL</div>
+                      <ProgressBar value={"88"} />
+                      <div>GraphQL</div>
+                      <ProgressBar value={"88"} />
+                      <div>PHP</div>
+                      <ProgressBar value={"80"} />
+                    </div>
+                  }
+                />
+                <SkillCol
+                  title="Crypto"
+                  content={
+                    <div className="flex flex-col">
+                      <div>Solidity</div>
+                      <ProgressBar value={"90"} />
+                      <div>Web3 & Web3Auth Profile</div>
+                      <ProgressBar value={"100"} />
+                      <div>NFT Marketplace</div>
+                      <ProgressBar value={"90"} />
+                      <div>NFT Launch Pad</div>
+                      <ProgressBar value={"100"} />
+                      <div>{`Crypto <-> Fiat & DEX`}</div>
+                      <ProgressBar value={"100"} />
+                      <div>{`Cross Chain Asset & NFT management`}</div>
+                      <ProgressBar value={"100"} />
+                    </div>
+                  }
+                />
+                <SkillCol
+                  title="Testing"
+                  content={
+                    <div className="flex flex-col">
+                      <div>Jenkins - Test Automation</div>
+                      <ProgressBar value={"100"} />
+                      <div>Unit Testing</div>
+                      <ProgressBar value={"98"} />
+                      <div>Jest</div>
+                      <ProgressBar value={"98"} />
+                      <div>Playwright</div>
+                      <ProgressBar value={"100"} />
+                      <div>Crypress</div>
+                      <ProgressBar value={"98"} />
+                      <div>Cucumber- BDD Tool</div>
+                      <ProgressBar value={"98"} />
+                    </div>
+                  }
+                />
+                <SkillCol
+                  title="Deployment"
+                  content={
+                    <div className="flex flex-col">
+                      <div>AWS Amplify</div>
+                      <ProgressBar value={"100"} />
+                      <div>Vercel</div>
+                      <ProgressBar value={"100"} />
+                      <div>
+                        App Store &<br /> Play Store Deployments
+                      </div>
+                      <ProgressBar value={"100"} />
+                    </div>
+                  }
+                />
+                <HeaderDivider text={"EDUCATION"} />
+              </AnimationOnScroll>
+              <TitleDescTime
+                title="The University Of Hong Kong"
+                desc="Computer Science"
+                time="2018 - 2022"
+              />
+            </div>
+            <HeaderDivider text={"WORK EXPERIENCE"} />
+
+            <Roadmap />
           </div>
         </div>
+      </AnimationOnScroll>
+      <div className="flex flex-col items-center">
         <div className="mb-5"></div>
         <div>Download my resume as PDF file.</div>
         <div className="mb-5"></div>
@@ -124,50 +214,14 @@ const Resume = () => {
                 <DownloadSvg />
               </div>
 
-              <div className="ml-2 ">Download (229KB)</div>
+              <div className="ml-2 ">Download (242KB)</div>
             </div>
           }
           isTight={isMobile}
         />
-        <div className="mb-10"></div>
-        <div ref={ref} className={titleStyle}>
-          Contact
-        </div>
-        <div className=" mt-4 text-center ">
-          <NewlineText text={contactDesc} />
-        </div>
-        <div className="mb-5"></div>
-        <div className="form-control w-4/5">
-          <input
-            type="text"
-            placeholder="Enter your name"
-            className=" input input-bordered bg-gray-100 border-black text-gray-700"
-          />
-
-          <textarea
-            className="my-5 textarea textarea-bordered h-24 bg-gray-100 border-black text-gray-700"
-            placeholder="Tell me"
-          />
-        </div>
-        <BgBtn
-          onClick={() => {
-            window.open(
-              "mailto:cwfflutter@gmail.com?subject=I am interested in &body=Testing"
-            );
-          }}
-          text={
-            <div className="flex items-center">
-              <div className="w-[30px] h-[30px]">
-                <SendSvg />
-              </div>
-
-              <div className="ml-2 ">Send</div>
-            </div>
-          }
-          isTight={isMobile}
-        />
-        <div className="mb-5"></div>
       </div>
+      <div className="mb-10"></div>
+      <ContactMeForm formRef={ref} />
     </Base>
   );
 };

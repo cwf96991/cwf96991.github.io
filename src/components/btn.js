@@ -10,7 +10,8 @@ const OutlineBtn = ({ text, onClick, isTight }) => {
   );
 };
 const BgBtn = ({ text, onClick, isTight }) => {
-  isTight = isTight ?? false ? "w-full md:w-[120px]" : "w-[127.5px] md:w-[202px]";
+  isTight =
+    isTight ?? false ? "w-[98%] md:w-[120px] " : "w-[127.5px] md:w-[202px]";
   return (
     <button
       onClick={onClick}

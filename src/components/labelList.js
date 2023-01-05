@@ -22,7 +22,7 @@ const UnSelectChip = ({ text }) => {
 const PreviewGithubBtnRow = ({ previewLink, githubLink }) => {
   return (
     <div className="flex flex-col md:flex-row my-4">
-      <div className="mr-4 w-full mb-5 md:mb-5">
+      <div className="mr-4 w-full mb-5 ">
         {previewLink && (
           <BgBtn
             onClick={() => {
@@ -58,9 +58,9 @@ const PreviewGithubBtnRow = ({ previewLink, githubLink }) => {
     </div>
   );
 };
-const WorkCard = ({ work }) => {
+const WorkCard = ({ work, callback }) => {
   const { image, title, labels, desc, previewLink, githubLink } = work;
-
+  let bgColor = work.bgColor ?? "bg-white";
   const noPreviewGithub = previewLink == null && githubLink == null;
   let descMaxHeight = !noPreviewGithub
     ? "max-h-[120px]"
@@ -68,7 +68,7 @@ const WorkCard = ({ work }) => {
   const isMobile = useMobile();
   return (
     <div className="card card-bordered w-[330px] md:w-[380px] h-[620px] shadow-lg mr-4 mb-4">
-      <img src={image} className="h-1/3 md:h-1/2 object-cover" />
+      <img src={image} className={`h-1/3 md:h-1/2 object-contain ${bgColor}`} />
       <div className="card-body">
         <h2 className="card-title">
           <NewlineText text={title} />
@@ -77,7 +77,13 @@ const WorkCard = ({ work }) => {
           <div className="carousel ">
             {labels.map((label, index) => {
               return (
-                <div className="carousel-item" key={index}>
+                <div
+                  onClick={() => {
+                    callback(label);
+                  }}
+                  className="carousel-item"
+                  key={index}
+                >
                   <UnSelectChip text={label} />
                 </div>
               );
@@ -110,7 +116,7 @@ const LabelList = () => {
         onClick={() => {
           setFilter(label.toLowerCase());
         }}
-        className={`ml-4 ${BtnBaseStyle} ${
+        className={`mr-4 ${BtnBaseStyle} ${
           isSelect ?? false ? SelectedStyle : unSelectedStyle
         }`}
       >
@@ -151,11 +157,11 @@ const LabelList = () => {
   return (
     <div className="flex flex-col">
       <div className="mt-8">
-        <div className="carousel ">
+        <div className=" carousel">
           {labelList.map((item, index) => {
             const { label, count } = item;
             return (
-              <div className="carousel-item" key={index}>
+              <div className="carousel-item mb-2" key={index}>
                 <Chip text={`${label} (${count})`} label={label} />
               </div>
             );
@@ -167,7 +173,12 @@ const LabelList = () => {
           {filterByLabel(workList).map((work, index) => {
             return (
               <div className="carousel-item" key={index}>
-                <WorkCard work={work} />
+                <WorkCard
+                  callback={(label) => {
+                    setFilter(label.toLowerCase());
+                  }}
+                  work={work}
+                />
               </div>
             );
           })}
@@ -175,7 +186,15 @@ const LabelList = () => {
       ) : (
         <div className="flex flex-wrap my-4">
           {filterByLabel(workList).map((work, index) => {
-            return <WorkCard work={work} key={index} />;
+            return (
+              <WorkCard
+                callback={(label) => {
+                  setFilter(label.toLowerCase());
+                }}
+                work={work}
+                key={index}
+              />
+            );
           })}
         </div>
       )}

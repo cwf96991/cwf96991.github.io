@@ -15,7 +15,7 @@ const ReadMore = ({ children, textLimit }) => {
       {text.length > textLimit && (
         <span
           onClick={toggleReadMore}
-          className={`read-or-hide text-yellow-500 cursor-pointer ${
+          className={`read-or-hide text-blue-500 cursor-pointer ${
             isReadMore ? "overflow-y-auto" : "overflow-y-scroll"
           }`}
         >

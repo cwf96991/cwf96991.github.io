@@ -1,11 +1,11 @@
-function NewlineText({ text }) {
-    const newText = text.split("\n").map((str, index) => (
-      <p key={index}>
-        {str}
-        <br />
-      </p>
-    ));
-  
-    return newText;
-  }
-  export default NewlineText
+function NewlineText({ text, split }) {
+  const newText = text.split(split ?? "\n").map((str, index) => (
+    <span key={index}>
+      {str}
+      <br />
+    </span>
+  ));
+
+  return newText;
+}
+export default NewlineText;

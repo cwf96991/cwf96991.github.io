@@ -1,4 +1,7 @@
-import About from "../templates/index";
+const About = dynamic(() => import("../templates/index"), {
+  ssr: false,
+});
+import dynamic from "next/dynamic";
 const Index = () => <About />;
 // export function getStaticProps({ locale }) {
 //   return {

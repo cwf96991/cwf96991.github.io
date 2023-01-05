@@ -31,8 +31,20 @@ const skillList = [
     percent: 95,
   },
   {
+    text: "Web3Auth Profile",
+    percent: 100,
+  },
+  {
+    text: "Crypto <-> Fiat and Trade in DEX",
+    percent: 100,
+  },
+  {
+    text: "Cross Chain Asset & NFT management",
+    percent: 90,
+  },
+  {
     text: "NFT Marketplace",
-    percent: 80,
+    percent: 95,
   },
   {
     text: "UI/UX + SEO (NextJs)",
@@ -43,14 +55,17 @@ const skillList = [
     percent: 100,
   },
   {
+    text: "Cucumber - BDD Tool",
+    percent: 100,
+  },
+  {
     text: "Github + Jira - Project Management",
     percent: 95,
   },
   {
-    text: "Vercel App Store & Play Store deployments",
+    text: "Vercel, App Store & Play Store deployments",
     percent: 100,
   },
-  
 ];
 const BarWidget = ({ text, percent }) => {
   return (

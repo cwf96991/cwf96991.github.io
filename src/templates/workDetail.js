@@ -1,125 +1,116 @@
 import Base from "./base";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Button, H4, H6, H5, Divider, Subtitle1 } from "ui-neumorphism";
+import { Button } from "ui-neumorphism";
 import "ui-neumorphism/dist/index.css";
-import React, { useEffect, useState } from "react";
-import { LeftArrow } from "../components/img";
-const CloseBtn = ({ onClose }) => {
-  return (
-    <div className="absolute right-1/4 z-40">
-      <Button rounded onClick={() => onClose} className="btn btn-xs btn-ghost hover:bg-transparent ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          className="inline-block w-6 h-6 stroke-current"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          ></path>
-        </svg>
-      </Button>
-    </div>
-  );
-};
-const FavBtn = ({ isLeft }) => {
-  let style = isLeft ? "left-1/4 " : "right-1/4";
-  return (
-    <div className={`absolute ${style} z-40 translate-y-20`}>
-      <Button rounded onClick={() => {}} className="btn btn-xs btn-ghost hover:bg-transparent ">
-        Heart
-      </Button>
-    </div>
-  );
-};
-const ProjItem = ({ image, text, isReverse }) => {
-  isReverse = isReverse ?? false;
-  let gridStyle = isReverse
-    ? "right-1/3 translate-x-36"
-    : "left-1/3 -translate-x-36";
-  let descStyle = isReverse
-    ? "left-12 translate-x-2/3"
-    : "right-12 -translate-x-2/3";
-  return (
-    <div className="w-screen px-16 h-screen relative ">
-      <div className="relative inset-0 flex justify-center items-center z-10 p-16  ">
-        <img className="mx-auto w-2/3 h-auto " src="/assets/mockUp.jpg" />
-      </div>
-
-      <div
-        className={`w-[200px] h-2/3 bg-blue-700 text-transparent absolute top-10  z-0 ${gridStyle}`}
-      >
-        .
-      </div>
-      <div
-        className={`w-1/5 h-2/3 bg-[#fdfdfb] text-black absolute top-24 z-20 ${descStyle}`}
-      >
-        This is the text for the desc
-      </div>
-    </div>
-  );
-};
-const porjList = [1, 2, 3];
+import { ArrowRight } from "../components/img";
+import {
+  FormWidget,
+  HoverCardWidget,
+  SocialMediaSkill,
+  MarkDownWidget,
+  PixelEffectWidget
+} from "../components/skill";
+import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+const SocialMediaLogin = dynamic(
+  () => import("../components/skill/socialMediaLogin"),
+  {
+    ssr: false,
+  }
+);
+const porjList = [
+  {
+    text: "MarkdownEditor",
+    widget: <MarkDownWidget />,
+  }, 
+  {
+    text: "3DHover",
+    widget: <HoverCardWidget />,
+  },
+  {
+    text: "SocialMedia",
+    widget: <SocialMediaSkill />,
+  },
+  {
+    text: "SocialMediaLogin",
+    widget: <SocialMediaLogin />,
+  },
+  {
+    text: "form",
+    widget: <FormWidget />,
+  },
+  // {
+  //   text: "PixelEffect",
+  //   widget: <PixelEffectWidget />,
+  // },
+];
 const Test = () => {
-  const [isOdd, setIsOdd] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (window) {
+      if (window.location.href.includes("#")) {
+        let text = window.location.href.split("#")[1];
+        for (let index = 0; index < porjList.length; index++) {
+          const element = porjList[index];
+
+          if (text == element.text) {
+            ref.current.go(index);
+
+            break;
+          }
+        }
+      }
+    }
+  }, []);
   return (
-    <Base title={"member"}>
-      <div className="my-20">
-        <CloseBtn
-          onClose={() => {
-            console.log("close");
-          }}
-        />
-        <FavBtn isLeft={isOdd} onClose={() => {}} />
+    <Base>
+      <div className="my-5">
         <Splide
-          // ref={ref}
+          ref={ref}
           onMove={(splide, prev, next) => {
-            setIsOdd(prev % 2 == 1);
+            let skillName = porjList[prev].text;
+            window.history.replaceState(
+              window.history.state,
+              "",
+              `/myWork#${skillName}`
+            );
           }}
-          renderControls={() => (
-            <div className="splide__arrows">
-              <div className=" splide__arrow--prev" role="button">
-                <Button
-                  rounded
-                  onClick={() => {}}
-                  className="btn btn-xs btn-ghost hover:bg-transparent absolute left-8 top-1/3 "
-                >
-                  <div className="h-[25px] w-[25px] rotate-180">
-                    <LeftArrow />
-                  </div>
-                </Button>
+          renderControls={() =>
+            porjList.length != 1 && (
+              <div className="splide__arrows">
+                <div className=" splide__arrow--prev" role="button">
+                  <Button
+                    rounded
+                    className="btn btn-xs btn-ghost hover:bg-transparent absolute left-8 top-1/3 "
+                  >
+                    <div className=" rotate-[270deg]">
+                      <ArrowRight />
+                    </div>
+                  </Button>
+                </div>
+                <div className="splide__arrow--next" role="button">
+                  <Button
+                    rounded
+                    className="btn btn-xs btn-ghost hover:bg-transparent  absolute right-8 top-1/3 "
+                  >
+                    <div className=" rotate-90">
+                      <ArrowRight />
+                    </div>
+                  </Button>
+                </div>
               </div>
-              <div className="splide__arrow--next" role="button">
-                <Button
-                  rounded
-                  onClick={() => {}}
-                  className="btn btn-xs btn-ghost hover:bg-transparent  absolute right-8 top-1/3 "
-                >
-                  <div className="h-[25px] w-[25px] rotate-180">
-                    <LeftArrow />
-                  </div>
-                </Button>
-              </div>
-            </div>
-          )}
+            )
+          }
           options={{
-            arrows: true,
+            arrows: porjList.length != 1,
             rewind: true,
-            padding: "1rem",
             pagination: false,
           }}
         >
           {porjList.map((proj, index) => {
-            let isOdd = index % 2 == 1;
-            return (
-              <SplideSlide key={index}>
-                <ProjItem isReverse={!isOdd} />
-              </SplideSlide>
-            );
+            const { widget } = proj;
+            return <SplideSlide key={index}>{widget}</SplideSlide>;
           })}
         </Splide>
       </div>

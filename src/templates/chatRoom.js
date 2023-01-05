@@ -1,7 +1,7 @@
 
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
-import Base from "./Base";
+import Base from "./base";
 import { BgBtn } from "../components/btn";
 import { onForegroundMessage,getFirebaseToken } from "../utils/firebase";
 import localforage from "localforage";

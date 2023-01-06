@@ -51,6 +51,7 @@ const workList = [
    
   },
 ];
+
 const desc = AppConfig.description;
 const resumeDesc =
   "I started my journey as a programmer 3 years ago  when I enrolled in a WWW Course in University. During the following years I developed my skills in web app development.";

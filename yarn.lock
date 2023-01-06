@@ -3330,6 +3330,20 @@
   "resolved" "https://registry.npmjs.org/@types/long/-/long-4.0.2.tgz"
   "version" "4.0.2"
 
+"@types/micro-cors@^0.1.2":
+  "integrity" "sha512-dlNOHHaatKcuYXGMHkqICtFdthd+3tE8pFIrDTbDBYAtlTb7HzYh+NeEgfNWiARgOnsIOuoh2L2XR4UHow84nw=="
+  "resolved" "https://registry.npmjs.org/@types/micro-cors/-/micro-cors-0.1.2.tgz"
+  "version" "0.1.2"
+  dependencies:
+    "@types/micro" "*"
+
+"@types/micro@*":
+  "integrity" "sha512-MFsX7eCj0Tg3TtphOQvANNvNtFpya+s/rYOCdV6o+DFjOQPFi2EVRbBALjbbgZTXUaJP1Q281MJiJOD40d0UxQ=="
+  "resolved" "https://registry.npmjs.org/@types/micro/-/micro-7.3.7.tgz"
+  "version" "7.3.7"
+  dependencies:
+    "@types/node" "*"
+
 "@types/minimist@^1.2.0":
   "integrity" "sha512-fZQQafSREFyuZcdWFAExYjBiCL7AUCdgsk80iO0q4yihYYdcIiH28CcuPTGFgLOCC8RlW49GSQxdHwZP+I7CNg=="
   "resolved" "https://registry.npmjs.org/@types/minimist/-/minimist-1.2.1.tgz"

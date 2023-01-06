@@ -34,6 +34,10 @@ const porjList = [
     widget: <HoverCardWidget />,
   },
   {
+    text: "PixelEffect",
+    widget: <PixelEffectWidget />,
+  },
+  {
     text: "SocialMedia",
     widget: <SocialMediaSkill />,
   },
@@ -45,10 +49,7 @@ const porjList = [
     text: "form",
     widget: <FormWidget />,
   },
-  {
-    text: "PixelEffect",
-    widget: <PixelEffectWidget />,
-  },
+  
 ];
 const Test = () => {
   const ref = useRef(null);

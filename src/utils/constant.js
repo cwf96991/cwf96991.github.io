@@ -46,7 +46,7 @@ const workList = [
     image: "/assets/icon.svg",
     title: "Skill Set Showcases",
     labels: ["ReactJS", "NextJS", "Responsive", "HTML&CSS","HTML5","Social Media","Markdown"],
-    desc: "-Markdown editor with html converter and export to PDF file\n-3D Hover Effect\n-Share on Social Media\n-Login with Social Media\n-Form with Validation",
+    desc: "-Markdown editor with html converter and export to PDF file\n-3D Hover Effect\n-Pixel Hover Image Effect with drag and drop upload Image\n-Share on Social Media\n-Login with Social Media\n-Form with Validation",
     previewLink: "/myWork",
    
   },

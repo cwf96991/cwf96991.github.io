@@ -9,12 +9,17 @@ import {
   HoverCardWidget,
   SocialMediaSkill,
   MarkDownWidget,
-  PixelEffectWidget
 } from "../components/skill";
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 const SocialMediaLogin = dynamic(
   () => import("../components/skill/socialMediaLogin"),
+  {
+    ssr: false,
+  }
+);
+const PixelEffectWidget = dynamic(
+  () => import("../components/skill/pixelEffect"),
   {
     ssr: false,
   }
@@ -40,10 +45,10 @@ const porjList = [
     text: "form",
     widget: <FormWidget />,
   },
-  // {
-  //   text: "PixelEffect",
-  //   widget: <PixelEffectWidget />,
-  // },
+  {
+    text: "PixelEffect",
+    widget: <PixelEffectWidget />,
+  },
 ];
 const Test = () => {
   const ref = useRef(null);

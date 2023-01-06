@@ -7,7 +7,7 @@ const titleList = [
   "Blockchain Developer",
   2000,
   "Freelancer",
-  2000, 
+  2000,
 ];
 const cwfateDemoLink = "https://cwfate-cwf96991.vercel.app/";
 const goupstairDemoLink = "https://go-up-stair.vercel.app/";

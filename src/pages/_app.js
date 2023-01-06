@@ -2,7 +2,7 @@ import App from "next/app";
 import Head from "next/head";
 
 import { NextIntlProvider } from "next-intl";
-import "../styles/global.css";
+import '@/styles/globals.css';
 import "animate.css/animate.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

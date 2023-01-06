@@ -11,7 +11,6 @@
     "build-prod": "run-s clean build export",
     "clean": "rimraf .next out",
     "lint": "next lint",
-    
     "lint:fix": "eslint src --fix && yarn format",
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
@@ -21,7 +20,8 @@
     "format:check": "prettier -c .",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "prepare": "husky install",
-    "seed": "npx prisma db seed"
+    "seed": "npx prisma db seed",
+    "db": "npx prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^4.8.1",
@@ -44,9 +44,10 @@
     "next": "^13.1.1",
     "next-intl": "^2.3.4",
     "next-seo": "^4.28.1",
+    "npm-check": "^6.0.1",
     "rc-progress": "^3.2.4",
     "react": "^18.2.0",
-    "react-animation-on-scroll": "^2.1.0",
+    "react-animation-on-scroll": "^5.1.0",
     "react-blockies": "^1.4.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",

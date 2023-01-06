@@ -32,6 +32,7 @@ export default function Home() {
   if (error) return <p>Oh no... {error.message}</p>
   const { endCursor, hasNextPage } = data.links.pageInfo;
   const AwesomeLink = (props:any)=>{
+    
     const {title,category,url,id,description,imageUrl} = props
     return <li key={id} className="shadow  max-w-md  rounded">
     <img className="shadow-sm" src={imageUrl} />
@@ -59,16 +60,17 @@ export default function Home() {
       <div className="flex items-center p-4 mx-auto min-h-screen justify-center">
       <div className="container mx-auto max-w-5xl my-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {data?.links.edges.map(({ node }) => (
+          {data?.links.edges.map((node: any) => {
+            return (
             <AwesomeLink
-              title={node.title}
-              category={node.category}
-              url={node.url}
-              id={node.id}
-              description={node.description}
-              imageUrl={node.imageUrl}
+              title={node.node.title}
+              category={node.node.category}
+              url={node.node.url}
+              id={node.node.id}
+              description={node.node.description}
+              imageUrl={node.node.imageUrl}
             />
-          ))}
+          )})}
         </div>
         {hasNextPage ? (
           <button

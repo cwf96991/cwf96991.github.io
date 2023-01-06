@@ -16,7 +16,7 @@ export const Link = objectType({
         return await ctx.prisma.link
           .findUnique({
             where: {
-              id: _parent.id,
+              id: _parent.id??"",
             },
           })
           .users()
@@ -42,7 +42,7 @@ export const LinksQuery = extendType({
         if (args.after) {
           // check if there is a cursor as the argument
           queryResults = await ctx.prisma.link.findMany({
-            take: args.first, // the number of items to return from the database
+            take: args.first??0, // the number of items to return from the database
             skip: 1, // skip the cursor
             cursor: {
               id: args.after, // the cursor
@@ -52,7 +52,7 @@ export const LinksQuery = extendType({
           // if no cursor, this means that this is the first request
           //  and we will return the first items in the database
           queryResults = await ctx.prisma.link.findMany({
-            take: args.first,
+            take: args.first??0,
           })
         }
         // if the initial request returns links
@@ -64,7 +64,7 @@ export const LinksQuery = extendType({
 
           // query after the cursor to check if we have nextPage
           const secondQueryResults = await ctx.prisma.link.findMany({
-            take: args.first,
+            take: args.first??0,
             cursor: {
               id: myCursor,
             },
@@ -76,7 +76,7 @@ export const LinksQuery = extendType({
           const result = {
             pageInfo: {
               endCursor: myCursor,
-              hasNextPage: secondQueryResults.length >= args.first, //if the number of items requested is greater than the response of the second query, we have another page
+              hasNextPage: secondQueryResults.length >= args.first!, //if the number of items requested is greater than the response of the second query, we have another page
             },
             edges: queryResults.map(link => ({
               cursor: link.id,

@@ -9,9 +9,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { Meta } from "../layout/Meta";
 import { AppConfig } from "../utils/AppConfig";
 import "react-toastify/dist/ReactToastify.css";
+import { ApolloProvider } from '@apollo/client'
+import apolloClient from '../lib/apollo'
 const MyApp = ({ Component, pageProps }) => (
   // <NextIntlProvider messages={pageProps.messages}>
   <>
+  <ApolloProvider client={apolloClient}>
     <Head>
       <meta
         name="google-site-verification"
@@ -24,6 +27,7 @@ const MyApp = ({ Component, pageProps }) => (
       canonical={AppConfig.canonical}
     />
     <Component {...pageProps} />
+    </ApolloProvider>
   </>
   // </NextIntlProvider>
 );

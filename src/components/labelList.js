@@ -157,7 +157,7 @@ const LabelList = () => {
   return (
     <div className="flex flex-col">
       <div className="mt-8">
-        <div className=" carousel">
+        <div className=" flex flex-wrap">
           {labelList.map((item, index) => {
             const { label, count } = item;
             return (

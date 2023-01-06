@@ -173,7 +173,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
           }}
           className="rating rating-sm"
         >
-          <input type="radio" name="rating-9" className="rating-hidden" />
+          <input type="radio" name="rating-9" className="rating-hidden hidden" />
           <input
             type="radio"
             name="rating-9"

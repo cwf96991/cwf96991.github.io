@@ -1,6 +1,6 @@
 import Base from "./base";
 import { useRef } from "react";
-import TypeAnimation from "react-type-animation";
+import {TypeAnimation} from "react-type-animation";
 import { titleList, desc } from "../utils/constant";
 import useMobile from "../hook/useMobile";
 import { AnimationOnScroll } from "react-animation-on-scroll";
@@ -20,16 +20,16 @@ const About = () => {
     <Base>
       <div className="flex jusitfy-center items-center mx-4 md:m-16 md:h-screen">
         {!isMobile && (
-          <AnimationOnScroll
+          <div
             animateIn="animate__fadeInLeft"
             className="w-[40%]"
           >
             <img className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} />
-          </AnimationOnScroll>
+          </div>
         )}
         <div className="flex flex-col w-full  md:w-[60%] md:ml-8">
           {isMobile && <img className={"px-20 h-[300px] my-10"} src={"/assets/icon.svg"} />}
-          <AnimationOnScroll
+          <div
             animateIn={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
           >
             <div className={titleStyle}>
@@ -64,7 +64,7 @@ const About = () => {
                 text={"Check my work"}
               />
             </div>
-          </AnimationOnScroll>
+          </div>
         </div>
       </div>
 

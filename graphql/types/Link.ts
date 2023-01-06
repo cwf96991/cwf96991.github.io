@@ -78,7 +78,7 @@ export const LinksQuery = extendType({
               endCursor: myCursor,
               hasNextPage: secondQueryResults.length >= args.first!, //if the number of items requested is greater than the response of the second query, we have another page
             },
-            edges: queryResults.map(link => ({
+            edges: queryResults.map((link: { id: any }) => ({
               cursor: link.id,
               node: link,
             })),

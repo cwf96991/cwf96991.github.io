@@ -30,7 +30,7 @@ const EditorWidget = () => {
             convertToRaw(editorState.getCurrentContent())
         )}
             onCopy={() => copyFunc()}>
-            <div className="rdw-option-wrapper rdw-remove-wrapper" >{isCopied?"Copied":"Copy Html"}</div>
+            <div key="CopyBtn" className="rdw-option-wrapper rdw-remove-wrapper" >{isCopied?"Copied":"Copy Html"}</div>
         </CopyToClipboard>
 
     }
@@ -39,7 +39,7 @@ const EditorWidget = () => {
             console.log("Export")
             print('pdf', 'html-template')
         }
-        return <div className="rdw-option-wrapper rdw-remove-wrapper" onClick={() => exportFunc()}>Export as PDF</div>
+        return <div key="ExportBtn" className="rdw-option-wrapper rdw-remove-wrapper" onClick={() => exportFunc()}>Export as PDF</div>
     }
 
     return <div>

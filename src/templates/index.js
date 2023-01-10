@@ -24,11 +24,11 @@ const About = () => {
             animateIn="animate__fadeInLeft"
             className="w-[40%]"
           >
-            <img className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} />
+            <img alt="icon" className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} />
           </div>
         )}
         <div className="flex flex-col w-full  md:w-[60%] md:ml-8">
-          {isMobile && <img className={"px-20 h-[300px] my-10"} src={"/assets/icon.svg"} />}
+          {isMobile && <img alt="icon" className={"px-20 h-[300px] my-10"} src={"/assets/icon.svg"} />}
           <div
             animateIn={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
           >

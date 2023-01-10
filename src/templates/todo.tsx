@@ -1,5 +1,8 @@
 import Base from "./base";
 import { gql, useQuery, useMutation } from "@apollo/client";
+// import { ApolloProvider } from '@apollo/client'
+// import apolloClient from '../lib/apollo'
+// import { UserProvider } from '@auth0/nextjs-auth0'
 const AllLinksQuery = gql`
   query allLinksQuery($first: Int, $after: String) {
     links(first: $first, after: $after) {
@@ -35,7 +38,7 @@ export default function Home() {
     
     const {title,category,url,id,description,imageUrl} = props
     return <li key={id} className="shadow  max-w-md  rounded">
-    <img className="shadow-sm" src={imageUrl} />
+      <img alt={title} className="shadow-sm" src={imageUrl} />
     <div className="p-5 flex flex-col space-y-2">
       <p className="text-sm text-blue-500">{category}</p>
       <p className="text-lg font-medium">{title}</p>

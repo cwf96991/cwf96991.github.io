@@ -6,7 +6,7 @@ function useIsEn() {
   const { locale } = router;
   useEffect(() => {
     setIsEn(locale === "en");
-  });
+  }, [locale]);
 
   return isEn;
 }

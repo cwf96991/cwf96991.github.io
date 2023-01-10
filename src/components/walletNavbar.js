@@ -4,28 +4,27 @@ import {
   IndeedSvg,
   TuringSvg,
   LinkedInSvg,
-} from "../components/img";
+} from "@/components/img";
 import {
   githubLink,
   indeedLink,
   turingLink,
   linkedinLink,
-} from "../utils/constant";
-import WalletBtn from "../components/walletBtn";
-import useWeb3 from "../hook/useWeb3";
-
+} from "@/utils/constant";
+import WalletBtn from "@/components/walletBtn";
+import useWeb3 from "@/hook/useWeb3";
+import Link from 'next/link'
 import { FullLogo } from "./logo";
 const selectedNav =
   "block py-2 pr-4 pl-3  xl:bg-transparent xl:text-blue-700 xl:p-0 btnText";
 const unSelectedNav =
   "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 btnText xl:hover:bg-transparent xl:border-0 xl:hover:text-blue-700 xl:p-0";
 const NavItem = ({ text, link }) => {
-  var baseurl = "";
   const [isSelect, setIsSelected] = useState("");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      baseurl = location.origin;
+      let baseurl = location.origin;
       baseurl = baseurl + "/";
       let isResume = text == "Resume" && location.href.includes("resume");
       let isMyWork = text == "My Work" && location.href.includes("myWork");
@@ -147,9 +146,11 @@ const WalletNavBar = () => {
   return (
     <nav className="bg-white  py-2.5 rounded shadow-lg opacity-85 backdrop-filter backdrop-blur-sm sticky">
       <div className="mx-4 xl:mx-16 flex flex-wrap justify-between items-center ">
-        <a href="/" className="hover:border-0">
-          <FullLogo />
-        </a>
+        <Link  legacyBehavior href="/">
+          <a className="hover:border-0">
+            <FullLogo />
+          </a>
+        </Link>
         <div className="flex items-center xl:order-2">
           <div className="flex items-center">
             {haveWallet && (

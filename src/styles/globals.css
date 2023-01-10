@@ -23,6 +23,10 @@ a:hover {
   @apply h-[calc(100vh-70px)]
 }
 
+.fullScreenWithMobile{
+  @apply md:h-[calc(100vh-72px)] h-[calc(100vh-146px)]
+}
+
 .fullScreenWithMargin {
   @apply h-[calc(100vh-120px)]
 }

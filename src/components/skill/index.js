@@ -4,4 +4,6 @@ import TestSkill from "./test";
 import SocialMediaSkill from "./socialMediaWidget"
 import MarkDownWidget from "./markdown"
 import PixelEffectWidget from "./pixelEffect"
-export { FormWidget, HoverCardWidget, TestSkill, SocialMediaSkill, MarkDownWidget, PixelEffectWidget };
+import LinkPreviewWidget from "./linkPreview"
+import PaymentgatewayWidget from "./paymentgateway"
+export { FormWidget, HoverCardWidget, TestSkill, SocialMediaSkill, MarkDownWidget, PixelEffectWidget, LinkPreviewWidget, PaymentgatewayWidget };

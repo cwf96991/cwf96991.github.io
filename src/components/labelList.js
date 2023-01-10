@@ -68,7 +68,7 @@ const WorkCard = ({ work, callback }) => {
   const isMobile = useMobile();
   return (
     <div className="card card-bordered w-[330px] md:w-[380px] h-[620px] shadow-lg mr-4 mb-4">
-      <img src={image} className={`h-1/3 md:h-1/2 object-contain ${bgColor}`} />
+      <img alt={title} src={image} className={`h-1/3 md:h-1/2 object-contain ${bgColor}`} />
       <div className="card-body">
         <h2 className="card-title">
           <NewlineText text={title} />

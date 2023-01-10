@@ -9,6 +9,7 @@ import {
   HoverCardWidget,
   SocialMediaSkill,
   MarkDownWidget,
+  LinkPreviewWidget
 } from "../components/skill";
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
@@ -37,6 +38,10 @@ const porjList = [
     text: "PixelEffect",
     widget: <PixelEffectWidget />,
   },
+  // {
+  //   text: "LinkPreview",
+  //   widget: <LinkPreviewWidget />,
+  // },
   {
     text: "SocialMedia",
     widget: <SocialMediaSkill />,

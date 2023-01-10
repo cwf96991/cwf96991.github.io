@@ -91,11 +91,12 @@ const useWeb3 = (network) => {
     }
     return;
   }
-  useEffect(() => {
-    connectWallet();
-  }, []);
+  // useEffect(() => {
+    
+  // }, []);
   useEffect(() => {
     if (window.ethereum) {
+      connectWallet();
       window.ethereum.on("chainChanged", connectWallet);
       window.ethereum.on("accountsChanged", connectWallet);
       window.ethereum.on("disconnect", handleDisConnect);

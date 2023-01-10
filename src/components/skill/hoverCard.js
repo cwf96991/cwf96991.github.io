@@ -34,7 +34,7 @@ const HoverCardWidget = () => {
           gyroscope={true}
         >
           <div className="mt-4 flex flex-col items-center border border-black rounded-lg p-2 opacity-85 backdrop-filter backdrop-blur-sm">
-            <img src={base64} className="mb-2" />
+            <img alt="hoverCard" src={base64} className="mb-2" />
             <h1>3D Hover Effect 👀</h1>
             <h2>Click Me or drop thhe file right here</h2>
           </div>

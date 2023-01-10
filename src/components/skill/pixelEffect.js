@@ -130,7 +130,7 @@ const PixelEffectWidget = () => {
         return (
             <div className="">
                 <canvas id="canvas1" className=" -translate-y-[50px]"></canvas>
-                <img className="hidden" id="image1" src={base64}></img>
+                <img alt="demo Image" className="hidden" id="image1" src={base64}></img>
             </div>
         );
     };

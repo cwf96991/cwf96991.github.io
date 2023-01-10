@@ -11,7 +11,7 @@ const FavBtn = ({ skill }) => {
         }
       }
     }
-  }, []);
+  }, [skill]);
   function toggle() {
     if (typeof window !== "undefined") {
       let skills = JSON.parse(localStorage.getItem("skills"));

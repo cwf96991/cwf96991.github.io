@@ -34,7 +34,7 @@ const User = memo(({ provider, profile, onLogout }) => {
   return (
     <div className="card">
       <div className="avt">
-        <img alt="141" src={avatar} />
+        <img alt="avatar" src={avatar} />
       </div>
 
       <h3 className="provider">{provider.toUpperCase()}</h3>

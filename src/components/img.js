@@ -424,7 +424,7 @@ const ArrowRight = () => {
 };
 
 const Edit = () => {
-  return <img src="https://img.icons8.com/ios/30/000000/edit--v2.png" />;
+  return <img alt="edit" src="https://img.icons8.com/ios/30/000000/edit--v2.png" />;
 };
 
 const CrossSvg = () => {

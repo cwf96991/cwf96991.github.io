@@ -69,7 +69,7 @@ const skillList = [
 ];
 const BarWidget = ({ text, percent }) => {
   return (
-    <div className="w-full md:w-1/2 pr-8 md:pr-4 mb-4">
+    <div className="w-full pr-8 mb-4 md:w-1/2 md:pr-4">
       <ProgressBar text={text} percent={percent} />
     </div>
   );

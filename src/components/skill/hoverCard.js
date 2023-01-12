@@ -25,7 +25,7 @@ const HoverCardWidget = () => {
       <div className="mx-auto flex items-center justify-center h-[350px] md:h-auto  cursor-pointer">
          <FileUploader  classes="" handleChange={handleChange} name="file" types={fileTypes} >
             <Tilt
-          className="tilt cursor-pointer"
+          className="cursor-pointer tilt"
           tiltMaxAngleX={40}
           tiltMaxAngleY={40}
           perspective={1000}
@@ -33,7 +33,7 @@ const HoverCardWidget = () => {
           scale={1.2}
           gyroscope={true}
         >
-          <div className="mt-4 flex flex-col items-center border border-black rounded-lg p-2 opacity-85 backdrop-filter backdrop-blur-sm">
+          <div className="flex flex-col items-center p-2 mt-4 border border-black rounded-lg opacity-85 backdrop-filter backdrop-blur-sm">
             <img alt="hoverCard" src={base64} className="mb-2" />
             <h1>3D Hover Effect 👀</h1>
             <h2>Click Me or drop thhe file right here</h2>

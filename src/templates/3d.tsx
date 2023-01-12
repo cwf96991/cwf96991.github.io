@@ -23,7 +23,7 @@ export default function Home() {
   }
   return (
     <Base title={"3D Playground"}>
-      <div className="fullScreenWithMobile w-screen">
+      <div className="w-screen fullScreenWithMobile">
         <Canvas
           shadows={true}
           className={"bg-black"}

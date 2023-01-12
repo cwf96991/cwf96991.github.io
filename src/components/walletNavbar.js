@@ -92,10 +92,10 @@ const MenuBtn = () => {
         onClick={() => {
           checkNavBar();
         }}
-        className="flex items-center p-1 text-purpleTextLight hover:text-gray-600 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+        className="flex items-center p-1 transition duration-300 ease-in-out transform text-purpleTextLight hover:text-gray-600 focus:outline-none focus:shadow-outline hover:scale-105"
       >
         <svg
-          className="fill-current h-6 w-6 "
+          className="w-6 h-6 fill-current "
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
           fill="#B880F3"
@@ -145,7 +145,7 @@ const WalletNavBar = () => {
   }, []);
   return (
     <nav className="bg-white  py-2.5 rounded shadow-lg opacity-85 backdrop-filter backdrop-blur-sm sticky">
-      <div className="mx-4 xl:mx-16 flex flex-wrap justify-between items-center ">
+      <div className="flex flex-wrap items-center justify-between mx-4 xl:mx-16 ">
         <Link  legacyBehavior href="/">
           <a className="hover:border-0">
             <FullLogo />
@@ -154,7 +154,7 @@ const WalletNavBar = () => {
         <div className="flex items-center xl:order-2">
           <div className="flex items-center">
             {haveWallet && (
-              <div className="mr-2 hidden md:flex">
+              <div className="hidden mr-2 md:flex">
                 <WalletBtn
                   chainBalance={balance}
                   handleClickConnect={connectWallet}
@@ -177,7 +177,7 @@ const WalletNavBar = () => {
                   onClick={() => {
                     window.open(link);
                   }}
-                  className="tooltip tooltip-bottom tooltip-hover w-6 h-6 mr-2"
+                  className="w-6 h-6 mr-2 tooltip tooltip-bottom tooltip-hover"
                 >
                   {icon}
                 </button>
@@ -187,7 +187,7 @@ const WalletNavBar = () => {
           <MenuBtn />
         </div>
         {haveWallet && (
-          <div className="flex md:hidden justify-end w-full ">
+          <div className="flex justify-end w-full md:hidden ">
             <div className="mt-2">
               <WalletBtn
                 chainBalance={balance}
@@ -205,7 +205,7 @@ const WalletNavBar = () => {
         )}
 
         <div
-          className="hidden justify-between items-center w-full xl:flex xl:w-auto xl:order-1"
+          className="items-center justify-between hidden w-full xl:flex xl:w-auto xl:order-1"
           id="nav-content"
         >
           <ul className="flex flex-col mt-4 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-sm xl:font-medium md:translate-x-[40%]">

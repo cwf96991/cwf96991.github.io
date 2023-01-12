@@ -37,9 +37,9 @@ export default function Home() {
   const AwesomeLink = (props:any)=>{
     
     const {title,category,url,id,description,imageUrl} = props
-    return <li key={id} className="shadow  max-w-md  rounded">
+    return <li key={id} className="max-w-md rounded shadow">
       <img alt={title} className="shadow-sm" src={imageUrl} />
-    <div className="p-5 flex flex-col space-y-2">
+    <div className="flex flex-col p-5 space-y-2">
       <p className="text-sm text-blue-500">{category}</p>
       <p className="text-lg font-medium">{title}</p>
       <p className="text-gray-600">{description}</p>
@@ -60,9 +60,9 @@ export default function Home() {
   }
   return (
     <Base title={"GraphQL Playground"}>
-      <div className="flex items-center p-4 mx-auto min-h-screen justify-center">
-      <div className="container mx-auto max-w-5xl my-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="flex items-center justify-center min-h-screen p-4 mx-auto">
+      <div className="container max-w-5xl mx-auto my-20">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {data?.links.edges.map((node: any) => {
             return (
             <AwesomeLink
@@ -77,7 +77,7 @@ export default function Home() {
         </div>
         {hasNextPage ? (
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded my-10"
+            className="px-4 py-2 my-10 text-white bg-blue-500 rounded"
             onClick={() => {
               fetchMore({
                 variables: { after: endCursor },
@@ -94,7 +94,7 @@ export default function Home() {
             more
           </button>
         ) : (
-          <p className="my-10 text-center font-medium">
+          <p className="my-10 font-medium text-center">
             You've reached the end!{" "}
           </p>
         )}

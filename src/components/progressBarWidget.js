@@ -2,8 +2,8 @@ import { Line } from "rc-progress";
 
 const ProgressBar = ({ text, percent }) => {
   return (
-    <div className=" text-left  text-black font-bold font-italic">
-      <div className="flex relative">
+    <div className="font-bold text-left text-black font-italic">
+      <div className="relative flex">
         {text}
         <div className={`absolute text-sm`} style={{ left: ` ${percent - 5}%` }}>
           {percent}%

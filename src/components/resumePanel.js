@@ -14,16 +14,16 @@ const contactItemList = [
 ];
 const SectionHeader = ({ text }) => {
   return (
-    <div className="text-white text-2xl border border-white  py-1 text-center mt-4">
+    <div className="py-1 mt-4 text-2xl text-center text-white border border-white">
       {text}
     </div>
   );
 };
 const TitleDescTime = ({ title, desc, time }) => {
   return (
-    <div className="flex flex-col  my-5 text-white">
+    <div className="flex flex-col my-5 text-white">
       <div className="text-gray-500">{time}</div>
-      <div className=" text-extrabold ">{title}</div>
+      <div className=" text-extrabold">{title}</div>
       <div className="text-sm">{desc}</div>
     </div>
   );
@@ -51,8 +51,8 @@ const ContactItem = ({ item }) => {
       }}
       className="flex items-center my-2 cursor-pointer"
     >
-      <div className="bg-white rounded-full p-1">{icon}</div>
-      <div className="text-white ml-2">{text}</div>
+      <div className="p-1 bg-white rounded-full">{icon}</div>
+      <div className="ml-2 text-white">{text}</div>
     </div>
   );
 };

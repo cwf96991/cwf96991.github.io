@@ -93,7 +93,7 @@ const Test = () => {
                 <div className=" splide__arrow--prev" role="button">
                   <Button
                     rounded
-                    className="btn btn-xs btn-ghost hover:bg-transparent absolute left-8 top-1/3 "
+                    className="absolute btn btn-xs btn-ghost hover:bg-transparent left-8 top-1/3 "
                   >
                     <div className=" rotate-[270deg]">
                       <ArrowRight />
@@ -103,9 +103,9 @@ const Test = () => {
                 <div className="splide__arrow--next" role="button">
                   <Button
                     rounded
-                    className="btn btn-xs btn-ghost hover:bg-transparent  absolute right-8 top-1/3 "
+                    className="absolute btn btn-xs btn-ghost hover:bg-transparent right-8 top-1/3 "
                   >
-                    <div className=" rotate-90">
+                    <div className="rotate-90 ">
                       <ArrowRight />
                     </div>
                   </Button>

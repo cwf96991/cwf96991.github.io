@@ -37,9 +37,9 @@ const FormWidget = ({}) => {
         )}
         <div>
           {isLoading ? (
-            <div className="border border-black shadow rounded-md p-4 max-w-sm w-full ml-5">
-              <div className="animate-pulse flex space-x-4">
-                <div className="animate-pulse flex flex-col">
+            <div className="w-full max-w-sm p-4 ml-5 border border-black rounded-md shadow">
+              <div className="flex space-x-4 animate-pulse">
+                <div className="flex flex-col animate-pulse">
                   <code>{`{`}</code>
                   <div className=" bg-slate-200 w-[80px] h-[24px] ml-5 rounded-lg mb-2"></div>
                   <div className=" bg-slate-200 w-[120px] h-[24px] ml-5 rounded-lg mb-2"></div>
@@ -53,7 +53,7 @@ const FormWidget = ({}) => {
             </div>
           ) : (
             input != "" && (
-              <pre className="text-success ml-5">
+              <pre className="ml-5 text-success">
                 <code className="-ml-5">{`{`}</code>
                 <code>
                   <NewlineText
@@ -89,7 +89,7 @@ const FormWidget = ({}) => {
         className="modal "
       >
         <div className="modal-box fixed rounded-lg w-[80%] top-[30vh]">
-          <h3 className="font-bold text-lg">
+          <h3 className="text-lg font-bold">
             Are you sure you want to continue?
           </h3>
           <p className="py-4">You can see the result after submit</p>

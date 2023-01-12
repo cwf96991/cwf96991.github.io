@@ -94,10 +94,10 @@ const MenuBtn = () => {
         onClick={() => {
           checkNavBar();
         }}
-        className="flex items-center p-1 text-purpleTextLight hover:text-gray-600 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+        className="flex items-center p-1 transition duration-300 ease-in-out transform text-purpleTextLight hover:text-gray-600 focus:outline-none focus:shadow-outline hover:scale-105"
       >
         <svg
-          className="fill-current h-6 w-6 "
+          className="w-6 h-6 fill-current "
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
           fill="#B880F3"
@@ -145,7 +145,7 @@ const Navbar = ({ toggleMode, darkMode }) => {
     <WalletNavBar />
   ) : (
     <nav className="bg-white  py-2.5 rounded shadow-lg opacity-85 backdrop-filter backdrop-blur-sm sticky">
-      <div className="mx-4 md:mx-16 flex flex-wrap justify-between items-center ">
+      <div className="flex flex-wrap items-center justify-between mx-4 md:mx-16 ">
           <Link legacyBehavior href="/">
           <a  className="hover:border-0">
             <FullLogo />
@@ -162,7 +162,7 @@ const Navbar = ({ toggleMode, darkMode }) => {
                   onClick={() => {
                     window.open(link);
                   }}
-                  className="tooltip tooltip-bottom tooltip-hover w-6 h-6 mr-2"
+                  className="w-6 h-6 mr-2 tooltip tooltip-bottom tooltip-hover"
                 >
                   {icon}
                 </button>
@@ -172,7 +172,7 @@ const Navbar = ({ toggleMode, darkMode }) => {
           <MenuBtn />
         </div>
         <div
-          className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="nav-content"
         >
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">

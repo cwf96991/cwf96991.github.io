@@ -19,7 +19,7 @@ const Widget = () => {
             onChange={(e) => {
                 setInput(e.target.value);
             }}
-            className="input input-ghost border-gray-400 w-full "
+            className="w-full border-gray-400 input input-ghost "
         />
     </div>;
 }

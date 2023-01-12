@@ -10,7 +10,7 @@ const ReadMore = ({ children, textLimit }) => {
   const isMobile = useMobile();
   textLimit = textLimit ?? (isMobile ? 80 : 100);
   return (
-    <p className="text-black font-semibold">
+    <p className="font-semibold text-black">
       {<NewlineText text={isReadMore ? text.slice(0, textLimit) : text} />}
       {text.length > textLimit && (
         <span

@@ -13,7 +13,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 const HeaderDivider = ({ text }) => {
   return (
     <div className="w-full ">
-      <div className="font-medium text-2xl ">{text}</div>
+      <div className="text-2xl font-medium ">{text}</div>
       <div className=" h-[1px] bg-gray-300"></div>
     </div>
   );
@@ -39,15 +39,15 @@ const ContactItem = ({ item }) => {
       }}
       className="flex items-center my-2 cursor-pointer"
     >
-      <div className="bg-white rounded-full p-1">{icon}</div>
-      <div className="text-black ml-2">{text}</div>
+      <div className="p-1 bg-white rounded-full">{icon}</div>
+      <div className="ml-2 text-black">{text}</div>
     </div>
   );
 };
 const TitleDescTime = ({ title, desc, time }) => {
   return (
     <div className="flex flex-col items-center mb-5">
-      <div className="text-black text-extrabold text-xl">{title}</div>
+      <div className="text-xl text-black text-extrabold">{title}</div>
       <div className="">{desc}</div>
       <div className="text-gray-500">{time}</div>
     </div>
@@ -80,14 +80,14 @@ const Resume = () => {
       <AnimationOnScroll animateIn="animate__fadeIn">
         <div className="flex w-full ">
           <ResumePanel />
-          <div className="w-full md:w-4/5 p-5">
+          <div className="w-full p-5 md:w-4/5">
             <HeaderDivider text={"PROFILE"} />
             <div className="flex-col md:hidden">
               {contactItemList.map((item, index) => {
                 return <ContactItem item={item} key={index} />;
               })}
             </div>
-            <div className="mt-4 mb-8">{desc}</div>
+            <div className="mt-4 mb-8 md:max-w-[825px]">{desc}</div>
             <div className="flex-col md:hidden">
               <AnimationOnScroll animateIn="animate__fadeInRight">
                 <HeaderDivider text={"SKILL"} />
@@ -206,7 +206,7 @@ const Resume = () => {
         <div className="mb-5"></div>
         <BgBtn
           onClick={() => {
-            FileSaver.saveAs("/assets/cv.pdf", "cwf_CV.pdf");
+            FileSaver.saveAs("/assets/Resume.pdf", "cwf_Resume.pdf");
           }}
           text={
             <div className="flex items-center">
@@ -214,7 +214,7 @@ const Resume = () => {
                 <DownloadSvg />
               </div>
 
-              <div className="ml-2 ">Download (242KB)</div>
+              <div className="ml-2 ">Download (238KB)</div>
             </div>
           }
           isTight={isMobile}

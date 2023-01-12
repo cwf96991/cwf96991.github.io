@@ -294,7 +294,7 @@ const SocialMediaLoginWidget = () => {
 };
 const SocialMediaLogin = () => {
   return (
-    <div className=" ">
+    <div className="">
       <Header header="Social Media Login" skill="socialMediaLogin" />
 
       <SkillContainer

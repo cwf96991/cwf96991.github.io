@@ -60,7 +60,7 @@ const ConnectWallet = ({
       ) : (
         <div className="flex flex-col items-start ">
           {address && (
-            <div className="text-themeWhite text-sm">
+            <div className="text-sm text-themeWhite">
               {truncateNumber(chainBalance)} {chainTokenSymbol}
             </div>
           )}
@@ -99,7 +99,7 @@ const ConnectWallet = ({
                   : "Connect Wallet"}
               </div>
               {address && (
-                <div className="text-themeWhite ml-2">
+                <div className="ml-2 text-themeWhite">
                   <IconBtn
                     src={`/assets/btn/copy.svg`}
                     onClick={() => {
@@ -123,7 +123,7 @@ const ConnectWallet = ({
               return (
                 <li key={index}>
                   <a
-                    className="text-themeBlue font-bold hover:text-blue-700 hover:shadow-md active:bg-slate-100"
+                    className="font-bold text-themeBlue hover:text-blue-700 hover:shadow-md active:bg-slate-100"
                     onClick={() => {
                       if (item.action != null) {
                         item.action();

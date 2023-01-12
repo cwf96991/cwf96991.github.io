@@ -11,7 +11,7 @@ const DropDownWrapper = ({ children, items, isHover }) => {
     >
       <div
         tabIndex="0"
-        className="cursor-pointer bg-transparent btn-sm p-0 border-0 m-0"
+        className="p-0 m-0 bg-transparent border-0 cursor-pointer btn-sm"
         onClick={() => {
           if (isOpen) {
             document.activeElement.blur();

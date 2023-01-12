@@ -154,7 +154,7 @@ const PixelEffectWidget = () => {
                 header="Pixel Hover Effect"
                 skill="PixelHoverEffect"
             />
-            <div className="w-full h-full justify-center flex-col items-center">
+            <div className="flex-col items-center justify-center w-full h-full">
             <FileUploader  label="Upload or drop a file on this page" classes="mx-auto translate-y-[50px]" handleChange={handleChange} name="file" types={fileTypes} >
             </FileUploader>
             <FileUploader  classes="mx-auto translate-y-[50px]" handleChange={handleChange} name="file" types={fileTypes} >

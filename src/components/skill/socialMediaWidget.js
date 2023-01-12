@@ -50,7 +50,7 @@ const SocialMediaSkill = () => {
         }}
         className={`btn ${bg} border-0 normal-case group mb-2`}
       >
-        <div className="flex hover:border-0 text-white items-center ">
+        <div className="flex items-center text-white hover:border-0 ">
           {icon}
           <div className={`ml-2 ${textColor}`}>{text}</div>
         </div>
@@ -100,7 +100,7 @@ const SocialMediaSkill = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="">
       <Header
         title="Share on Social Media | my work"
         header="Share on Social Media"

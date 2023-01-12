@@ -82,11 +82,11 @@ const FormSkill = ({ id, isLoading, onClick }) => {
     setDesc("");
   }
   return (
-    <div data-theme="light" className="form-control mt-5 w-full px-8 md:px-4">
+    <div data-theme="light" className="w-full px-8 mt-5 form-control md:px-4">
       <label className="label">
         <span className="label-text">Name</span>
         <span
-          className="label-text-alt flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer label-text-alt"
           onClick={() => {
             setIsLock(!isLock);
           }}
@@ -94,7 +94,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
           <div className="h-[12px] w-[12px]">
             <Edit />
           </div>
-          <div className="font-bold ml-2">Edit</div>
+          <div className="ml-2 font-bold">Edit</div>
         </span>
       </label>
       <div className="relative">
@@ -106,7 +106,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
           onChange={(e) => {
             setInput(e.target.value);
           }}
-          className="input input-ghost border-gray-400 w-full "
+          className="w-full border-gray-400 input input-ghost "
         />
         {input != "" && !isLock && (
           <div
@@ -120,7 +120,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
         )}
       </div>
       {inputError && (
-        <p className="text-red-500 text-xs italic">Please input your name.</p>
+        <p className="text-xs italic text-red-500">Please input your name.</p>
       )}
       <label className="cursor-pointer label">
         <span className="label-text">Remember me</span>
@@ -146,7 +146,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
             type="radio"
             name="radio-1"
             id={"member" + `_${id}`}
-            className="radio ml-2"
+            className="ml-2 radio"
           ></input>
         </label>
         <label className="cursor-pointer label">
@@ -155,16 +155,16 @@ const FormSkill = ({ id, isLoading, onClick }) => {
             type="radio"
             name="radio-1"
             id={"guest" + `_${id}`}
-            className="radio ml-2"
+            className="ml-2 radio"
           ></input>
         </label>
       </div>
       {userTypeError && (
-        <p className="text-red-500 text-xs italic">
+        <p className="text-xs italic text-red-500">
           Please select your user type.
         </p>
       )}
-      <label className="cursor-pointer label flex justify-between">
+      <label className="flex justify-between cursor-pointer label">
         <div className="label-text">Rating</div>
         <div
           onChange={(e) => {
@@ -173,7 +173,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
           }}
           className="rating rating-sm"
         >
-          <input type="radio" name="rating-9" className="rating-hidden hidden" />
+          <input type="radio" name="rating-9" className="hidden rating-hidden" />
           <input
             type="radio"
             name="rating-9"
@@ -207,7 +207,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
         </div>
       </label>
       {ratingError && (
-        <p className="text-red-500 text-xs italic">Please give me a rating.</p>
+        <p className="text-xs italic text-red-500">Please give me a rating.</p>
       )}
       <select
         id={"select" + `_${id}`}
@@ -216,7 +216,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
 
           setOptionError(false);
         }}
-        className="select w-full select-ghost border-gray-400 focus:outline-none"
+        className="w-full border-gray-400 select select-ghost focus:outline-none"
       >
         <option disabled selected>
           Pick one Project
@@ -225,7 +225,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
         <option>IG Clone</option>
       </select>
       {optionError && (
-        <p className="text-red-500 text-xs italic">
+        <p className="text-xs italic text-red-500">
           Please one of the options.
         </p>
       )}
@@ -233,7 +233,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
         onChange={(e) => {
           setDesc(e.target.value);
         }}
-        className="textarea mt-5 textarea-ghost border-gray-400"
+        className="mt-5 border-gray-400 textarea textarea-ghost"
         placeholder="Description"
       ></textarea>
       <label className="cursor-pointer label">
@@ -248,14 +248,14 @@ const FormSkill = ({ id, isLoading, onClick }) => {
         />
       </label>
       {isSubmit && !isAgree && (
-        <p className="text-red-500 text-xs italic">Please agree the terms.</p>
+        <p className="text-xs italic text-red-500">Please agree the terms.</p>
       )}
       <div
         onClick={() => {
           setIsSubmit(true);
           checkValidInput();
         }}
-        className="btn mt-2 "
+        className="mt-2 btn "
       >
         <ClipLoader name="circle " loading={isLoading} size={24} />
         <div className={isLoading ? "ml-2" : ""}>Submit</div>
@@ -267,7 +267,7 @@ const FormSkill = ({ id, isLoading, onClick }) => {
         }}
         type="reset"
         value="Reset"
-        className="btn mt-2"
+        className="mt-2 btn"
       />
     </div>
   );

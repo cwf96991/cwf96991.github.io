@@ -3,7 +3,7 @@ const IconBtn = ({ src, onClick, tooltip, tooltipText }) => {
     let finalStyle = tooltipText == null ? "" : `tooltip ${tooltip}`;
     return (
       <div data-tip={tooltipText} className={finalStyle}>
-        <button className="btn btn-ghost btn-sm p-0 hover:bg-transparent ">
+        <button className="p-0 btn btn-ghost btn-sm hover:bg-transparent ">
           <img alt={tooltipText??"button"} className="w-[20px]" src={src} onClick={() => onClick()} />
         </button>
       </div>

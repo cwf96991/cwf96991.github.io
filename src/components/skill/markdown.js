@@ -57,7 +57,7 @@ const EditorWidget = () => {
             onEditorStateChange={onEditorStateChange}
         />
         <textarea
-            className="my-5 w-full textarea-bordered h-24 bg-gray-100 border-black text-gray-700"
+            className="w-full h-24 my-5 text-gray-700 bg-gray-100 border-black textarea-bordered"
             disabled value={"Html Result:\n" + draftToHtmlPuri(
                 convertToRaw(editorState.getCurrentContent())
             )} />

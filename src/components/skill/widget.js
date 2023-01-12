@@ -10,7 +10,7 @@ const Header = ({ title, header, skill }) => {
     <>
       <Meta title={`${title}${AppConfig.title}`} />
       <div className="flex mb-2">
-        <div className="font-bold text-2xl ml-4 md:ml-16 ">{header}</div>
+        <div className="ml-4 text-2xl font-bold md:ml-16 ">{header}</div>
         <FavBtn skill={skill} />
       </div>
     </>
@@ -21,7 +21,7 @@ const SkillContainer = ({ window, phone }) => {
   const isMobile = useMobile();
 
   return (
-    <div className="w-screen  md:h-screen relative md:px-28">
+    <div className="relative w-screen md:h-screen md:px-28">
       {isMobile ? phone : <WindowMockUp>{window}</WindowMockUp>}
 
       <div className="hidden md:flex">
@@ -36,7 +36,7 @@ const MobileDeskTopSection = ({ children }) => {
   return (
     <div>
       {isMobile && (
-        <div className="font-bold text-black ml-5 mt-4">Desktop Version</div>
+        <div className="mt-4 ml-5 font-bold text-black">Desktop Version</div>
       )}
       {isMobile && (
         <WindowMockUp>

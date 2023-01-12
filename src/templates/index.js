@@ -18,7 +18,7 @@ const About = () => {
   const titleStyle = "text-2xl md:text-4xl font-extrabold text-center ";
   return (
     <Base>
-      <div className="flex jusitfy-center items-center mx-4 md:m-16 md:h-screen">
+      <div className="flex items-center mx-4 jusitfy-center md:m-16 md:h-screen">
         {!isMobile && (
           <div
             animateIn="animate__fadeInLeft"
@@ -37,19 +37,19 @@ const About = () => {
               <br />
               <div className="flex ">
                 a
-                <div className="bg-black text-white ml-2 md:ml-4">
+                <div className="ml-2 text-white bg-black md:ml-4">
                   <TypeAnimation
                     cursor={true}
                     sequence={titleList}
                     align="center"
-                    className="inline md:text-4xl text-xl grow"
+                    className="inline text-xl md:text-4xl grow"
                     repeat={Infinity}
                   />
                 </div>
               </div>
             </div>
-            <div className="max-w-lg mt-4 text-center mx-auto">{desc}</div>
-            <div className="flex mt-8 justify-center">
+            <div className="max-w-lg mx-auto mt-4 text-center">{desc}</div>
+            <div className="flex justify-center mt-8">
               <div className="mr-4 ">
                 <BgBtn 
                 onClick={()=>{
@@ -68,12 +68,12 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex flex-col mt-4 md:mt-0 text-center mx-4 md:mx-16">
+      <div className="flex flex-col mx-4 mt-4 text-center md:mt-0 md:mx-16">
         <AnimationOnScroll animateIn={"animate__fadeIn"}>
           <div ref={workRef} className={`${titleStyle} `}>
             Work
           </div>
-          <div className="text-gray-500 mt-4">
+          <div className="mt-4 text-gray-500">
             <NewlineText
               text={
                 "Check my commercial and non commercial projects.\nIf you have any questions feel free to ask me for more information. "

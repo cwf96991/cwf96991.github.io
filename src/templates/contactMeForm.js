@@ -17,11 +17,11 @@ const ContactMeForm = ({ formRef }) => {
         <div ref={formRef} className={titleStyle}>
           Contact
         </div>
-        <div className=" mt-4 text-center ">
+        <div className="mt-4 text-center ">
           <NewlineText text={contactDesc} />
         </div>
         <div className="mb-5"></div>
-        <div className="form-control w-4/5">
+        <div className="w-4/5 form-control">
           <input
             type="text"
             value={name}
@@ -29,11 +29,11 @@ const ContactMeForm = ({ formRef }) => {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            className=" input input-bordered bg-gray-100 border-black text-gray-700"
+            className="text-gray-700 bg-gray-100 border-black input input-bordered"
           />
 
           <textarea
-            className="my-5 textarea textarea-bordered h-24 bg-gray-100 border-black text-gray-700"
+            className="h-24 my-5 text-gray-700 bg-gray-100 border-black textarea textarea-bordered"
             placeholder="Tell me"
             value={desc}
             onChange={(e) => {

@@ -40,7 +40,7 @@ const FavBtn = ({ skill }) => {
       onClick={() => {
         toggle();
       }}
-      className="svgBgBtn ml-2"
+      className="ml-2 svgBgBtn"
     >
       {isFav ? <FavSvg size="20" /> : <UnFavSvg size="20" />}
     </div>

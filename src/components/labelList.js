@@ -21,8 +21,8 @@ const UnSelectChip = ({ text }) => {
 
 const PreviewGithubBtnRow = ({ previewLink, githubLink }) => {
   return (
-    <div className="flex flex-col md:flex-row my-4">
-      <div className="mr-4 w-full mb-5 ">
+    <div className="flex flex-col my-4 md:flex-row">
+      <div className="w-full mb-5 mr-4 ">
         {previewLink && (
           <BgBtn
             onClick={() => {
@@ -157,11 +157,11 @@ const LabelList = () => {
   return (
     <div className="flex flex-col">
       <div className="mt-8">
-        <div className=" flex flex-wrap">
+        <div className="flex flex-wrap ">
           {labelList.map((item, index) => {
             const { label, count } = item;
             return (
-              <div className="carousel-item mb-2" key={index}>
+              <div className="mb-2 carousel-item" key={index}>
                 <Chip text={`${label} (${count})`} label={label} />
               </div>
             );

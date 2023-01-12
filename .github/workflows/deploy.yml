@@ -27,8 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i --force
-    - run: turbo lint
-    - run: turbo build
+    - run: turbo build lint
     - run: turbo export
     - run: npm run postbuild
     - run: touch ./out/.nojekyll

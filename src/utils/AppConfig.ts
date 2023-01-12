@@ -2,7 +2,7 @@ export const AppConfig = {
   site_name: "CWF",
   title: "CWF | Flutter & React Developer",
   description:
-    "Forward-thinking Software Engineer with a background working in dynamic environments. Fluent in Flutter and Javascript programming languages used to develop Cross-platform Applications. A proud team player focused on achieving project objectives with speed and accuracy.Passionate about crypto, solidity and web3.",
+    "An innovative and fast-learning Frontend Engineer with 3 years ofexperience building and maintaining responsive mobileapplications and websites in the IT industry. Proficient in Flutter,JavaScript, React, React Native and API integration; plus modernlibraries and frameworks and enthused about solidity and web3. Iam passionate about developing apps that are intuitive andengaging. I’m excited to work in a technical team that prioritizesthe simplicity and serviceability of the app.",
   locale: "en",
   url: "https://cwf96991.github.io/",
   image: "https://cwf96991.github.io/icon-200x200.png",

@@ -27,6 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i --force
+    - run: npm install turbo --global
     - run: turbo build lint
     - run: turbo export
     - run: npm run postbuild

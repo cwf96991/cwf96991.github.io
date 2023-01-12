@@ -1,0 +1,16 @@
+yarn run v1.22.18
+warning ../../../package.json: No license field
+$ next build
+info  - Loaded env from /Users/cwf/Documents/GitHub/cwf96991.github.io/.env
+info  - Linting and checking validity of types...
+Failed to compile.
+
+./src/pages/api/auth/[...auth0].ts:1:28
+Type error: Cannot find module '@auth0/nextjs-auth0' or its corresponding type declarations.
+
+[0m[31m[1m>[22m[39m[90m 1 | [39m[36mimport[39m { handleAuth } [36mfrom[39m [32m'@auth0/nextjs-auth0'[39m[0m
+[0m [90m   | [39m                           [31m[1m^[22m[39m[0m
+[0m [90m 2 | [39m[0m
+[0m [90m 3 | [39m[36mexport[39m [36mdefault[39m handleAuth()[0m
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

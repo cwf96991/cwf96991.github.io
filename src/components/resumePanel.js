@@ -78,15 +78,19 @@ const ResumePanel = () => {
             <div>Flutter</div>
             <ProgressBar value={"98"} />
             <div>React Native</div>
-            <ProgressBar value={"90"} />
+            <ProgressBar value={"100"} />
+            <div>Typescript</div>
+            <ProgressBar value={"100"} />
             <div>NextJs</div>
-            <ProgressBar value={"95"} />
+            <ProgressBar value={"100"} />
             <div>ReactJs</div>
             <ProgressBar value={"90"} />
             <div>HTML&CSS</div>
             <ProgressBar value={"92"} />
             <div>SEO</div>
             <ProgressBar value={"98"} />
+            <div>NextAuth</div>
+            <ProgressBar value={"90"} />
           </div>
         }
       />
@@ -94,8 +98,12 @@ const ResumePanel = () => {
         title="Backend"
         content={
           <div className="flex flex-col">
+            <div>Java Spring</div>
+            <ProgressBar value={"90"} />
             <div>NodeJs</div>
             <ProgressBar value={"80"} />
+            <div>tPRC</div>
+            <ProgressBar value={"90"} />
             <div>Firebase</div>
             <ProgressBar value={"90"} />
             <div>AWS</div>
@@ -108,6 +116,8 @@ const ResumePanel = () => {
             <ProgressBar value={"88"} />
             <div>GraphQL</div>
             <ProgressBar value={"88"} />
+            <div>Prisma</div>
+            <ProgressBar value={"95"} />
             <div>PHP</div>
             <ProgressBar value={"80"} />
           </div>

@@ -67,7 +67,7 @@ const WorkCard = ({ work, callback }) => {
     : "max-h-[280px] md:max-h-[180px]";
   const isMobile = useMobile();
   return (
-    <div className="card card-bordered w-[330px] md:w-[380px] h-[620px] shadow-lg mr-4 mb-4">
+    <div className="card card-bordered border-white w-[330px] md:w-[380px] h-[640px] shadow-lg mr-4 mb-4">
       <img alt={title} src={image} className={`h-1/3 md:h-1/2 object-contain ${bgColor}`} />
       <div className="card-body">
         <h2 className="card-title">

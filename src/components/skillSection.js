@@ -8,6 +8,22 @@ const skillList = [
   },
   {
     text: "React + React Native",
+    percent: 100,
+  },
+  {
+    text: "Typescript",
+    percent: 100,
+  },
+  {
+    text: "tRPC",
+    percent: 90,
+  },
+  {
+    text: "Prisma",
+    percent: 90,
+  },
+  {
+    text: "NextAuth",
     percent: 90,
   },
   {
@@ -23,9 +39,14 @@ const skillList = [
     percent: 90,
   },
   {
+    text: "Java Spring",
+    percent: 85,
+  },
+  {
     text: "GraphQL",
     percent: 85,
   },
+  
   {
     text: "Solidity + Web3",
     percent: 95,
@@ -34,10 +55,7 @@ const skillList = [
     text: "Web3Auth Profile",
     percent: 100,
   },
-  {
-    text: "Crypto <-> Fiat and Trade in DEX",
-    percent: 100,
-  },
+  
   {
     text: "Cross Chain Asset & NFT management",
     percent: 90,
@@ -48,7 +66,7 @@ const skillList = [
   },
   {
     text: "UI/UX + SEO (NextJs)",
-    percent: 90,
+    percent: 100,
   },
   {
     text: "Jenkins - Test Automation",

@@ -71,9 +71,12 @@ const Resume = () => {
   const ref = useRef(null);
   const isMobile = useMobile();
   useEffect(() => {
-    if (window.location.href.includes("#contact")) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== 'undefined') {
+      if (window.location.href.includes("#contact")) {
+        ref.current.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    
   }, []);
   return (
     <Base title={"Resume"}>
@@ -214,7 +217,7 @@ const Resume = () => {
                 <DownloadSvg />
               </div>
 
-              <div className="ml-2 ">Download (238KB)</div>
+              <div className="ml-2 ">Download (421KB)</div>
             </div>
           }
           isTight={isMobile}

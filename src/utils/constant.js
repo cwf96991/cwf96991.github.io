@@ -13,6 +13,31 @@ const cwfateDemoLink = "https://cwfate-cwf96991.vercel.app/";
 const goupstairDemoLink = "https://go-up-stair.vercel.app/";
 const workList = [
   {
+    image: "/assets/Poke_Ball.webp",
+    title: "Pokemon Picker",
+    labels: ["ReactJS", "NextJS","Typescript", "Tailwind CSS","Responsive", "HTML&CSS","HTML5"],
+    desc: "Search for Pokémon by name and apply filters with autocomplete.\n Dark mode",
+    previewLink: "https://pokemon-picker-cwf96991.vercel.app",
+    githubLink: "https://github.com/cwf96991/pick-pokemon",
+  },
+  {
+    image: "/assets/cwfgram.jpg",
+    title: "CWFgram - IG Clone",
+    labels: ["ReactJS", "NextJS", "Typescript","Tailwind CSS","Responsive", "HTML&CSS","HTML5"],
+    desc: "This is a Instagram Clone\n-Lazy loading and placeholder effect when loading data\n-Drag-and-drop function to upload Images/Video" ,
+    previewLink: "https://cwfgram.vercel.app/",
+    githubLink: "https://github.com/cwf96991/IGClone",
+  },
+  
+  {
+    image: "/assets/icon.svg",
+    title: "Skill Set Showcases",
+    labels: ["ReactJS", "NextJS","Typescript", "Tailwind CSS","Responsive", "HTML&CSS","HTML5","3D Effect","Pixel Effect","Drop to upload file","Markdown Editor","Social Media",],
+    desc: "-Markdown editor with html converter and export to PDF file\n-3D Hover Effect with drag and drop upload Image\n-Pixel Hover Image Effect with drag and drop upload Image\n-Share on Social Media\n-Login with Social Media\n-Form with Validation",
+    previewLink: "/myWork",
+   
+  },
+  {
     image: "/assets/goupstair.svg",
     title: "Go Up Stair - NFT Project",
     labels: ["NFT", "Web3", "Mint", "Solidity", "NextJS"],
@@ -33,23 +58,7 @@ const workList = [
     desc: "Integrate Web3 with database and profile service like opensea. A simple dashboard for web3. Easily track and visualize all your DeFi assets and liabilities in one simple interface.Buying crypto with credit card and trade in DEX",
     previewLink: cwfateDemoLink,
   },
-  {
-    image: "/assets/cwfgram.jpg",
-    title: "CWFgram - IG Clone",
-    labels: ["ReactJS", "NextJS", "Responsive", "HTML&CSS","HTML5"],
-    desc: "This is a Instagram Clone",
-    previewLink: "https://cwfgram.vercel.app/",
-    githubLink: "https://github.com/cwf96991/IGClone",
-  },
   
-  {
-    image: "/assets/icon.svg",
-    title: "Skill Set Showcases",
-    labels: ["ReactJS", "NextJS", "Responsive", "HTML&CSS","HTML5","3D Effect","Pixel Effect","Drop to upload file","Markdown Editor","Social Media",],
-    desc: "-Markdown editor with html converter and export to PDF file\n-3D Hover Effect with drag and drop upload Image\n-Pixel Hover Image Effect with drag and drop upload Image\n-Share on Social Media\n-Login with Social Media\n-Form with Validation",
-    previewLink: "/myWork",
-   
-  },
 ];
 
 const desc = AppConfig.description;

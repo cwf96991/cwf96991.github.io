@@ -92,12 +92,12 @@ const Roadmap = () => {
   };
   return (
     <div className="mt-2">
-      <AnimationOnScroll animatein="animate__fadeInRight">
+      <AnimationOnScroll animateIn="animate__fadeInRight">
         <div className="ml-8 bg-black h-[80px] w-[2px]"></div>
       </AnimationOnScroll>
       {timelineList.map((item, index) => {
         return (
-          <AnimationOnScroll key={index} animatein="animate__fadeInRight">
+          <AnimationOnScroll key={index} animateIn="animate__fadeInRight">
             <RoadMapItem item={item}  key={index}/>
           </AnimationOnScroll>
         );

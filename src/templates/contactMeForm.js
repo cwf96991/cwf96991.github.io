@@ -12,7 +12,7 @@ const ContactMeForm = ({ formRef }) => {
   const [name, setName] = useState();
   const [desc, setDesc] = useState();
   return (
-    <AnimationOnScroll animatein="animate__fadeIn">
+    <AnimationOnScroll animateIn="animate__fadeIn">
       <div className="flex flex-col items-center">
         <div ref={formRef} className={titleStyle}>
           Contact

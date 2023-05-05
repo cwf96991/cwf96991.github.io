@@ -22,7 +22,7 @@ const About = () => {
       <div className="flex items-center mx-4 jusitfy-center md:m-16 md:h-screen">
         {!isMobile && (
           <div
-            animatein="animate__fadeInLeft"
+            animateIn="animate__fadeInLeft"
             className="w-[40%]"
           >
             <img alt="icon" className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} />
@@ -31,7 +31,7 @@ const About = () => {
         <div className="flex flex-col w-full  md:w-[60%] md:ml-8">
           {isMobile && <img alt="icon" className={"px-20 h-[300px] my-10"} src={"/assets/icon.svg"} />}
           <div
-            animatein={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
+            animateIn={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
           >
             <div className={titleStyle}>
               Hi, I'm Francis and I'm
@@ -74,7 +74,7 @@ const About = () => {
       </div>
 
       <div className="flex flex-col mx-4 mt-4 text-center md:mt-0 md:mx-16">
-        <AnimationOnScroll animatein={"animate__fadeIn"}>
+        <AnimationOnScroll animateIn={"animate__fadeIn"}>
           <div ref={workRef} className={`${titleStyle} `}>
             Work
           </div>
@@ -89,7 +89,7 @@ const About = () => {
             <LabelList />
           </div>
         </AnimationOnScroll>
-        <AnimationOnScroll animatein={"animate__fadeIn"}>
+        <AnimationOnScroll animateIn={"animate__fadeIn"}>
           <SkillSection />
         </AnimationOnScroll>
         <div className="flex justify-center mb-4">

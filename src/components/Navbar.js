@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import {
   GithubSvg,
   IndeedSvg,
-  TuringSvg,
   LinkedInSvg,
 } from "@/components/img";
 import {
   githubLink,
   indeedLink,
-  turingLink,
   linkedinLink,
 } from "@/utils/constant";
 import { metamaskDeepLink } from "@/utils/constant";
@@ -16,6 +14,7 @@ import { metamaskDeepLink } from "@/utils/constant";
 import WalletNavBar from "./walletNavbar";
 import useWallet from "../hook/useWallet";
 import Link from 'next/link'
+import Router from 'next/router'
 import { FullLogo } from "./logo";
 const selectedNav =
   "block py-2 pr-4 pl-3  md:bg-transparent md:text-blue-700 md:p-0 btnText";
@@ -43,7 +42,18 @@ const NavItem = ({ text, link }) => {
     <li>
       <div
         onClick={() => {
-          location.href = link;
+          const page = link.split("#")[0]
+          const toParams = link.split("#")[1]
+          if (toParams){
+            Router.push({
+              pathname: page,
+              query: { to: toParams },
+          })
+          }else{
+            Router.push({
+              pathname: page,
+          })
+          }
         }}
         className={isSelect == text ? selectedNav : unSelectedNav}
       >

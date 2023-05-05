@@ -2,9 +2,9 @@ import { EmailSvg, GithubSvg } from "./img";
 
 const contactItemList = [
   {
-    text: "cwfflutter@gmail.com",
+    text: "francis.choi1223@gmail.com",
     icon: <EmailSvg />,
-    link: "mailto:cwfflutter@gmail.com",
+    link: "mailto:francis.choi1223@gmail.com",
   },
   {
     text: "@cwf96991",
@@ -31,16 +31,16 @@ const TitleDescTime = ({ title, desc, time }) => {
 const SkillCol = ({ title, content }) => {
   return (
     <div
-      tabindex="0"
-      class="collapse collapse-arrow border text-white border-white bg-transparent mt-2"
+      tabIndex="0"
+      className="collapse collapse-arrow border text-white border-white bg-transparent mt-2"
     >
-      <div class="collapse-title font-medium">{title}</div>
-      <div class="collapse-content">{content}</div>
+      <div className="collapse-title font-medium">{title}</div>
+      <div className="collapse-content">{content}</div>
     </div>
   );
 };
 const ProgressBar = ({ value }) => {
-  return <progress class="progress w-full" value={value} max="100"></progress>;
+  return <progress className="progress w-full" value={value} max="100"></progress>;
 };
 const ContactItem = ({ item }) => {
   const { text, icon, link } = item;

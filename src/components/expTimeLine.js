@@ -82,8 +82,8 @@ const Roadmap = () => {
           <div className="my-auto font-normal text-themeWhite grow max-w-[972px]">
             <div>{desc}</div>
              
-            {points.map((point)=>{
-              return <div>{point}</div>
+            {points.map((point,index)=>{
+              return <div key={index}>{point}</div>
             })}
           </div>
         </div>
@@ -92,13 +92,13 @@ const Roadmap = () => {
   };
   return (
     <div className="mt-2">
-      <AnimationOnScroll animateIn="animate__fadeInRight">
+      <AnimationOnScroll animatein="animate__fadeInRight">
         <div className="ml-8 bg-black h-[80px] w-[2px]"></div>
       </AnimationOnScroll>
       {timelineList.map((item, index) => {
         return (
-          <AnimationOnScroll key={index} animateIn="animate__fadeInRight">
-            <RoadMapItem item={item} />
+          <AnimationOnScroll key={index} animatein="animate__fadeInRight">
+            <RoadMapItem item={item}  key={index}/>
           </AnimationOnScroll>
         );
       })}

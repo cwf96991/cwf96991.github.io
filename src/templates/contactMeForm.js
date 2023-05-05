@@ -12,7 +12,7 @@ const ContactMeForm = ({ formRef }) => {
   const [name, setName] = useState();
   const [desc, setDesc] = useState();
   return (
-    <AnimationOnScroll animateIn="animate__fadeIn">
+    <AnimationOnScroll animatein="animate__fadeIn">
       <div className="flex flex-col items-center">
         <div ref={formRef} className={titleStyle}>
           Contact
@@ -44,7 +44,7 @@ const ContactMeForm = ({ formRef }) => {
         <BgBtn
           onClick={() => {
             window.open(
-              `mailto:cwfflutter@gmail.com?subject=I am ${name} &body=${desc}`
+              `mailto:francis.choi1223@gmail.com?subject=I am ${name} &body=${desc}`
             );
           }}
           text={

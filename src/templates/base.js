@@ -21,7 +21,7 @@ const Basic = (props) => {
       {/* <div>
         footer
       </div> */}
-      {/* <AnimationOnScroll animateIn="animate__fadeIn">
+      {/* <AnimationOnScroll animatein="animate__fadeIn">
         <Footer />
       </AnimationOnScroll> */}
     </div>

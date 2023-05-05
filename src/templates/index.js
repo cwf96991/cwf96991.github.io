@@ -4,6 +4,7 @@ import {TypeAnimation} from "react-type-animation";
 import { titleList, desc } from "../utils/constant";
 import useMobile from "../hook/useMobile";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Router from 'next/router'
 
 import {
   LabelList,
@@ -21,7 +22,7 @@ const About = () => {
       <div className="flex items-center mx-4 jusitfy-center md:m-16 md:h-screen">
         {!isMobile && (
           <div
-            animateIn="animate__fadeInLeft"
+            animatein="animate__fadeInLeft"
             className="w-[40%]"
           >
             <img alt="icon" className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} />
@@ -30,7 +31,7 @@ const About = () => {
         <div className="flex flex-col w-full  md:w-[60%] md:ml-8">
           {isMobile && <img alt="icon" className={"px-20 h-[300px] my-10"} src={"/assets/icon.svg"} />}
           <div
-            animateIn={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
+            animatein={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
           >
             <div className={titleStyle}>
               Hi, I'm Francis and I'm
@@ -53,7 +54,11 @@ const About = () => {
               <div className="mr-4 ">
                 <BgBtn 
                 onClick={()=>{
-                  location.href ="/resume/#contact"
+                  Router.push({
+                    pathname: '/resume',
+                    query: { to: 'contact' },
+                })
+                 
                 }}
                 text={"Contact me"} />
               </div>
@@ -69,7 +74,7 @@ const About = () => {
       </div>
 
       <div className="flex flex-col mx-4 mt-4 text-center md:mt-0 md:mx-16">
-        <AnimationOnScroll animateIn={"animate__fadeIn"}>
+        <AnimationOnScroll animatein={"animate__fadeIn"}>
           <div ref={workRef} className={`${titleStyle} `}>
             Work
           </div>
@@ -84,7 +89,7 @@ const About = () => {
             <LabelList />
           </div>
         </AnimationOnScroll>
-        <AnimationOnScroll animateIn={"animate__fadeIn"}>
+        <AnimationOnScroll animatein={"animate__fadeIn"}>
           <SkillSection />
         </AnimationOnScroll>
         <div className="flex justify-center mb-4">

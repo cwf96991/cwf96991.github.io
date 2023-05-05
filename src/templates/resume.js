@@ -9,6 +9,7 @@ import { EmailSvg, GithubSvg, DownloadSvg } from "../components/img";
 import { BgBtn } from "../components/btn";
 import FileSaver from "file-saver";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import { useRouter } from 'next/router'
 
 const HeaderDivider = ({ text }) => {
   return (
@@ -20,9 +21,9 @@ const HeaderDivider = ({ text }) => {
 };
 const contactItemList = [
   {
-    text: "cwfflutter@gmail.com",
+    text: "francis.choi1223@gmail.com",
     icon: <EmailSvg />,
-    link: "mailto:cwfflutter@gmail.com",
+    link: "mailto:francis.choi1223@gmail.com",
   },
   {
     text: "@cwf96991",
@@ -56,25 +57,26 @@ const TitleDescTime = ({ title, desc, time }) => {
 const SkillCol = ({ title, content }) => {
   return (
     <div
-      tabindex="0"
-      class="collapse collapse-arrow border border-base-300 bg-transpartent my-2 rounded-box"
+      tabIndex="0"
+      className="collapse collapse-arrow border border-base-300 bg-transpartent my-2 rounded-box"
     >
-      <div class="collapse-title font-medium">{title}</div>
-      <div class="collapse-content">{content}</div>
+      <div className="collapse-title font-medium">{title}</div>
+      <div className="collapse-content">{content}</div>
     </div>
   );
 };
 const ProgressBar = ({ value }) => {
-  return <progress class="progress w-full" value={value} max="100"></progress>;
+  return <progress className="progress w-full" value={value} max="100"></progress>;
 };
 const Resume = () => {
   const ref = useRef(null);
   const isMobile = useMobile();
+  const router = useRouter()
+  
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (window.location.href.includes("#contact")) {
-        ref.current.scrollIntoView({ behavior: "smooth" });
-      }
+    
+    if (router?.query?.to ==='contact'){
+      ref.current.scrollIntoView({ behavior: "smooth" });
     }
     
   }, []);

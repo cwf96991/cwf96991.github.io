@@ -16,7 +16,7 @@ const workList = [
     image: "/assets/Poke_Ball.webp",
     title: "Pokemon Picker",
     labels: ["ReactJS", "NextJS","Typescript", "Tailwind CSS","Responsive", "HTML&CSS","HTML5"],
-    desc: "Search for Pokémon by name and apply filters with autocomplete.\n Dark mode",
+    desc: "-Search for Pokémon by name and apply filters with autocomplete.\n-Dark mode and mobile-friendly\n-Support deep linking to a specific step in the flow",
     previewLink: "https://pokemon-picker-cwf96991.vercel.app",
     githubLink: "https://github.com/cwf96991/pick-pokemon",
   },

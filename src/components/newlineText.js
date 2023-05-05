@@ -1,6 +1,6 @@
-function NewlineText({ text, split }) {
+function NewlineText({ text, split,className }) {
   const newText = text.split(split ?? "\n").map((str, index) => (
-    <span key={index}>
+    <span key={index} className={`${className??""}`}>
       {str}
       <br />
     </span>

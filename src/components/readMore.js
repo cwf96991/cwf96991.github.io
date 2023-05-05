@@ -10,12 +10,14 @@ const ReadMore = ({ children, textLimit }) => {
   const isMobile = useMobile();
   textLimit = textLimit ?? (isMobile ? 80 : 100);
   return (
-    <p className="font-semibold text-black">
-      {<NewlineText text={isReadMore ? text.slice(0, textLimit) : text} />}
+    <p className="font-semibold text-black transition-all">
+      {
+        <NewlineText text={isReadMore ? text.slice(0, textLimit) : text} />
+        }
       {text.length > textLimit && (
         <span
           onClick={toggleReadMore}
-          className={`read-or-hide text-blue-500 cursor-pointer ${
+          className={`read-or-hide text-blue-500 cursor-pointer hover:font-extrabold ${
             isReadMore ? "overflow-y-auto" : "overflow-y-scroll"
           }`}
         >

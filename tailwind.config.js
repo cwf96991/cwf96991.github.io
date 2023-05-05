@@ -58,10 +58,20 @@ module.exports = {
             backgroundPosition: '700px 0',
           },
         },
+        fadeOut: {
+          '0%': { Opacity: 1 },
+          '100%': { Opacity: 0 },
+        },
+        fadeIn: {
+          '0%': { Opacity: 0 },
+          '100%': { Opacity: 1 },
+        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
+        fadeIn: 'fadeIn 1s ease-in-out',
+        fadeOut: 'fadeOut 1s ease-in-out',
       },
     },
   },

@@ -15,7 +15,7 @@
       >
         <path
           xmlns="http://www.w3.org/2000/svg"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M5,65 L100,0 L195, 65 L100, 10 z M5,345 L100,425 L195,340 L100, 415 z"
         ></path>
       </g>

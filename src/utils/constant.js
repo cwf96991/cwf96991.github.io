@@ -44,20 +44,20 @@ const workList = [
     desc: "Minting your first NFT in Go Up Stair. Integrating buy and sell flow with OpenSea.\nSupport features:\n- Blind Box\n- Mint NFT with other ERC20 token e.g.USDT\n- Minting exclusive (whitelisting)\n- Support multiple wallet gateways and multiple chain \ne.g.Metamask, WalletConnect, BSC, Eth and Solana",
     previewLink: goupstairDemoLink,
   },
-  {
-    image: "/icon.svg",
-    title: "CWFate - All in One",
-    labels: [
-      "Web3",
-      "Cross Chain",
-      "Crypto <-> Fiat",
-      "Solidity",
-      "NFT",
-      "NextJS",
-    ],
-    desc: "Integrate Web3 with database and profile service like opensea. A simple dashboard for web3. Easily track and visualize all your DeFi assets and liabilities in one simple interface.Buying crypto with credit card and trade in DEX",
-    previewLink: cwfateDemoLink,
-  },
+  // {
+  //   image: "/icon.svg",
+  //   title: "CWFate - All in One",
+  //   labels: [
+  //     "Web3",
+  //     "Cross Chain",
+  //     "Crypto <-> Fiat",
+  //     "Solidity",
+  //     "NFT",
+  //     "NextJS",
+  //   ],
+  //   desc: "Integrate Web3 with database and profile service like opensea. A simple dashboard for web3. Easily track and visualize all your DeFi assets and liabilities in one simple interface.Buying crypto with credit card and trade in DEX",
+  //   previewLink: cwfateDemoLink,
+  // },
   
 ];
 

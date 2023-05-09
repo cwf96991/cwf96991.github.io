@@ -7,7 +7,7 @@ const Roadmap = () => {
   const timelineList = [
     {
       time: "Aug 2022 - Present",
-      title: "Frontend Developer",
+      title: "Frontend Engineer",
       subtitle: "VirgoCX Inc.",
       desc: "A mobile app provides crypto trading service and a marketplace to trade NFT",
       points:[

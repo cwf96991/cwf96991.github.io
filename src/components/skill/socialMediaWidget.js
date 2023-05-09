@@ -4,7 +4,7 @@ import { TwitterSvg, FBSvg, LinkinSvg, PinterestSvg, RedditSvg } from "../img";
 const SocialMediaSkill = () => {
   const isMobile = useMobile();
   const msg = encodeURIComponent(
-    "Check out this website!\nCWF is a great Flutter & React Developer"
+    "Check out this website!\nCWF is a great Flutter & React Engineer"
   );
   const hashTag = "flutter,react";
   const website = encodeURIComponent("https://cwf96991.github.io/");

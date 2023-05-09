@@ -1,10 +1,12 @@
 import { AppConfig } from "./AppConfig";
 const titleList = [
-  "Flutter Developer",
+  "Full Stack Engineer",
+  2000,
+  "Flutter Engineer",
   2000,
   "Software Engineer",
   2000,
-  "Blockchain Developer",
+  "Blockchain Engineer",
   2000,
   "Freelancer",
   2000,

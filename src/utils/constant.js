@@ -27,6 +27,7 @@ const workList = [
     desc: "This is a Instagram Clone\n-Lazy loading and placeholder effect when loading data\n-Drag-and-drop function to upload Images/Video" ,
     previewLink: "https://cwfgram.vercel.app/",
     githubLink: "https://github.com/cwf96991/IGClone",
+    splineLink:"https://prod.spline.design/xN5q-qSTZ6e8cmKi/scene.splinecode"
   },
   
   {
@@ -35,6 +36,7 @@ const workList = [
     labels: ["ReactJS", "NextJS","Typescript", "Tailwind CSS","Responsive", "HTML&CSS","HTML5","3D Effect","Pixel Effect","Drop to upload file","Markdown Editor","Social Media",],
     desc: "-Markdown editor with html converter and export to PDF file\n-3D Hover Effect with drag and drop upload Image\n-Pixel Hover Image Effect with drag and drop upload Image\n-Share on Social Media\n-Login with Social Media\n-Form with Validation",
     previewLink: "/myWork",
+    
    
   },
   {

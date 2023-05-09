@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { OutlineBtn, BgBtn } from "./btn";
 import NewlineText from "./newlineText";
 import { workList } from "../utils/constant";
 import useMobile from "../hook/useMobile";
 import ReadMoreText from "./readMore";
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 import { PreviewSvg, GithubSvg } from "./img";
 const BtnBaseStyle =
@@ -58,8 +59,11 @@ const PreviewGithubBtnRow = ({ previewLink, githubLink }) => {
     </div>
   );
 };
+const LoadingImage = ()=>{
+  return <div className="animate-pulse bg-[#f6f7f8] w-4/5 h-4/5 rounded-lg m-auto"></div>
+}
 const WorkCard = ({ work, callback }) => {
-  const { image, title, labels, desc, previewLink, githubLink } = work;
+  const { image, title, labels, desc, previewLink, githubLink,splineLink } = work;
   let bgColor = work.bgColor ?? "bg-white";
   const noPreviewGithub = previewLink == null && githubLink == null;
   let descMaxHeight = !noPreviewGithub
@@ -68,7 +72,14 @@ const WorkCard = ({ work, callback }) => {
   const isMobile = useMobile();
   return (
     <div className="card card-bordered border-white w-[330px] md:w-[380px] h-[640px] shadow-lg mr-4 mb-4">
-      <img alt={title} src={image} className={`h-1/3 md:h-1/2 object-contain ${bgColor}`} />
+      {splineLink?
+      <Suspense fallback={<LoadingImage />}>
+        
+     <div className="h-full"><Spline scene={splineLink} /></div>
+    </Suspense>
+      
+      :
+      <img alt={title} src={image} className={`h-1/3 md:h-1/2 object-contain ${bgColor}`} />}
       <div className="card-body">
         <h2 className="card-title">
           <NewlineText text={title} />

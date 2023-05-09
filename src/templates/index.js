@@ -1,10 +1,12 @@
 import Base from "./base";
-import { useRef } from "react";
-import {TypeAnimation} from "react-type-animation";
+import { TypeAnimation } from "react-type-animation";
 import { titleList, desc } from "../utils/constant";
 import useMobile from "../hook/useMobile";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import Router from 'next/router'
+import Router from "next/router";
+import React, { useRef, Suspense } from "react";
+
+const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 import {
   LabelList,
@@ -13,23 +15,38 @@ import {
   SkillSection,
   BgBtn,
 } from "../components";
+const LoadingImage = () => {
+  return (
+    <img alt="icon" className={"w-1/2 mx-auto py-auto h-full"} src={"/assets/icon.svg"} />
+  );
+};
 const About = () => {
   const isMobile = useMobile();
   const workRef = useRef(null);
   const titleStyle = "text-2xl md:text-4xl font-extrabold text-center ";
   return (
     <Base>
-      <div className="flex items-center mx-4 jusitfy-center md:m-16 md:h-screen">
+      <div className="jusitfy-center mx-4 flex items-center md:m-16 md:h-screen">
         {!isMobile && (
-          <div
-            animateIn="animate__fadeInLeft"
-            className="w-[40%]"
-          >
-            <img alt="icon" className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} />
+          <div animateIn="animate__fadeInLeft" className="h-full  w-[40%]">
+            <Suspense fallback={<LoadingImage />}>
+              <div className={"h-full"}>
+                <Spline scene="https://prod.spline.design/64VQaZi0kDzAgcnx/scene.splinecode" />
+              </div>
+              
+            </Suspense>
+
+            {/* <img alt="icon" className={"w-1/2 mx-auto"} src={"/assets/icon.svg"} /> */}
           </div>
         )}
-        <div className="flex flex-col w-full  md:w-[60%] md:ml-8">
-          {isMobile && <img alt="icon" className={"px-20 h-[300px] my-10"} src={"/assets/icon.svg"} />}
+        <div className="flex w-full flex-col  md:ml-8 md:w-[60%]">
+          {isMobile && (
+            <img
+              alt="icon"
+              className={"my-10 h-[300px] px-20"}
+              src={"/assets/icon.svg"}
+            />
+          )}
           <div
             animateIn={isMobile ? "animate__fadeIn" : "animate__fadeInRight"}
           >
@@ -38,29 +55,29 @@ const About = () => {
               <br />
               <div className="flex ">
                 a
-                <div className="ml-2 text-white bg-black md:ml-4">
+                <div className="ml-2 bg-black text-white md:ml-4">
                   <TypeAnimation
                     cursor={true}
                     sequence={titleList}
                     align="center"
-                    className="inline text-xl md:text-4xl grow"
+                    className="inline grow text-xl md:text-4xl"
                     repeat={Infinity}
                   />
                 </div>
               </div>
             </div>
-            <div className="max-w-lg mx-auto mt-4 text-center">{desc}</div>
-            <div className="flex justify-center mt-8">
+            <div className="mx-auto mt-4 max-w-lg text-center">{desc}</div>
+            <div className="mt-8 flex justify-center">
               <div className="mr-4 ">
-                <BgBtn 
-                onClick={()=>{
-                  Router.push({
-                    pathname: '/resume',
-                    query: { to: 'contact' },
-                })
-                 
-                }}
-                text={"Contact me"} />
+                <BgBtn
+                  onClick={() => {
+                    Router.push({
+                      pathname: "/resume",
+                      query: { to: "contact" },
+                    });
+                  }}
+                  text={"Contact me"}
+                />
               </div>
               <OutlineBtn
                 onClick={() => {
@@ -73,7 +90,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex flex-col mx-4 mt-4 text-center md:mt-0 md:mx-16">
+      <div className="mx-4 mt-4 flex flex-col text-center md:mx-16 md:mt-0">
         <AnimationOnScroll animateIn={"animate__fadeIn"}>
           <div ref={workRef} className={`${titleStyle} `}>
             Work
@@ -92,20 +109,15 @@ const About = () => {
         <AnimationOnScroll animateIn={"animate__fadeIn"}>
           <SkillSection />
         </AnimationOnScroll>
-        <div className="flex justify-center mb-4">
+        <div className="mb-4 flex justify-center">
           <BgBtn
-          onClick={() => {
-           window.open("/chatRoom");
-          }}
-          text={
-           "Join our Real time chat room!"
-          }
-          isTight={isMobile}
-        />
+            onClick={() => {
+              window.open("/chatRoom");
+            }}
+            text={"Join our Real time chat room!"}
+            isTight={isMobile}
+          />
         </div>
-        
-        
-                     
       </div>
     </Base>
   );
